@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{624B93BA-4165-4ED6-87E0-6A44C6774930}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>App</RootNamespace>
+    <AssemblyName>App</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\Analiza.cs" />
+    <Compile Include="Classes\Aplikacja.cs" />
+    <Compile Include="Classes\Baza_danych.cs" />
+    <Compile Include="Classes\Begringer_ECM8000.cs" />
+    <Compile Include="Classes\Bluetooth.cs" />
+    <Compile Include="Classes\Complex.cs" />
+    <Compile Include="Classes\Correction.cs" />
+    <Compile Include="Classes\CorrectionCurve.cs" />
+    <Compile Include="Classes\CorrectionCurveFactory.cs" />
+    <Compile Include="Classes\CorrectionCurveTypeA.cs" />
+    <Compile Include="Classes\CorrectionCurveTypeC.cs" />
+    <Compile Include="Classes\CorrectionCurveTypeZ.cs" />
+    <Compile Include="Classes\DTFT.cs" />
+    <Compile Include="Classes\Ekran.cs" />
+    <Compile Include="Classes\F0.cs" />
+    <Compile Include="Classes\FFT.cs" />
+    <Compile Include="Classes\FourierTransformation.cs" />
+    <Compile Include="Classes\GPIO.cs" />
+    <Compile Include="Classes\Kalibracja.cs" />
+    <Compile Include="Classes\kalibrator_VOLTCRAFT_SLC-100.cs" />
+    <Compile Include="Classes\Mikrofon2.cs" />
+    <Compile Include="Classes\Nagranie.cs" />
+    <Compile Include="Classes\Nagrywarka.cs" />
+    <Compile Include="Classes\new_interface.cs" />
+    <Compile Include="Classes\PanelSygnalizujacyZDiodami.cs" />
+    <Compile Include="Classes\Raspberry_Pi_3.cs" />
+    <Compile Include="Classes\Recording.cs" />
+    <Compile Include="Classes\RecordingToComplex.cs" />
+    <Compile Include="Classes\USB.cs" />
+    <Compile Include="Classes\Volume.cs" />
+    <Compile Include="Classes\Wi-Fi.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
