@@ -5,28 +5,25 @@ package Classes;
  */
 public class Nagranie {
 
-  //
-  // Fields
-  //
+  String nazwa;
+  String imie;
+  String nazwisko;
 
-  public String nazwa;
   /**
-   * Informacje o nagraniu
+   * Konstruktor klasy Nagranie
+   *
+   * @param nazwa - nazwa nagrania
+   * @param imie - imie użytkownika
+   * @param nazwisko - nazwisko użytkownika
    */
-  public String informacje;
-  
-  //
-  // Constructors
-  //
-  public Nagranie () { };
+  Nagranie(String nazwa, String imie, String nazwisko) {
+      this.nazwa = nazwa;
+      this.imie = imie;
+      this.nazwisko = nazwisko;
+  }
   
   //
   // Methods
-  //
-
-
-  //
-  // Accessor methods
   //
 
   /**
@@ -46,25 +43,39 @@ public class Nagranie {
   }
 
   /**
-   * Set the value of informacje
-   * Informacje o nagraniu
-   * @param newVar the new value of informacje
+   * Set the value of imie
+   * imie użytkownika
+   * @param newVar the new value of imie
    */
-  public void setInformacje (String newVar) {
-    informacje = newVar;
+  public void setImie (String newVar) {
+    imie = newVar;
   }
 
   /**
-   * Get the value of informacje
-   * Informacje o nagraniu
-   * @return the value of informacje
+   * Get the value of imie
+   * imie użytkownika
+   * @return the value of imie
    */
-  public String getInformacje () {
-    return informacje;
+  public String getImie () {
+    return imie;
+  }
+  
+  /**
+   * Set the value of nazwisko
+   * nazwisko użytkownika
+   * @param newVar the new value of nazwisko
+   */
+  public void setNazwisko (String newVar) {
+    nazwisko = newVar;
   }
 
-  //
-  // Other methods
-  //
+  /**
+   * Get the value of nazwisko
+   * nazwisko użytkownika
+   * @return the value of nazwisko
+   */
+  public String getNazwisko () {
+    return nazwisko;
+  }
 
 }
