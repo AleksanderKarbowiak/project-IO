@@ -7,17 +7,20 @@ import java.util.*;
  */
 public class Complex {
 
-  //
-  // Fields
-  //
-
-  private double real;
-  private double imaginary;
-  
-  //
-  // Constructors
-  //
-  public Complex () { };
+  private final double real;
+  private final double imaginary;
+  private double moduł;
+  private double faza;
+  public Complex (double real, double imaginary)
+  { 
+    this.real = real;
+    this.imaginary = imaginary;
+        
+    faza = 0;
+        
+    absolute();
+    ObliczFazę();
+  };
   
   //
   // Methods
@@ -105,7 +108,38 @@ public class Complex {
    */
   public double absolute()
   {
+     moduł = Math.sqrt((real*real) + (imaginary*imaginary));
   }
-
+  private void ObliczFazę()
+    {
+        if(a == 0 && b == 0)
+        {
+            faza = 0;
+        }else if(a == 0 && b > 0)
+        {
+            faza = Math.PI/2;
+        }else if(a == 0 && b < 0)
+        {
+            faza = 3 * Math.PI/2;
+        }else if(a != 0 && b == 0)
+        {
+            faza = 0;
+        }else if(a > 0 && b != 0)
+        {
+            faza = Math.atan(b/a);
+        }else if(a < 0 && b != 0)
+        {
+            faza = Math.atan(b/a) + Math.PI;
+        }//end if
+    }//Koniec obliczania fazy
+   public double getModuł()
+    {
+        return moduł;
+    }
+    
+    public double getFazę()
+    {
+        return faza;
+    }
 
 }
