@@ -1,3 +1,4 @@
+
 import javax.swing.*;
 
 public class MainWindow extends JFrame {
@@ -25,3 +26,4 @@ public class MainWindow extends JFrame {
         frame.setVisible(true);
     }
 }
+

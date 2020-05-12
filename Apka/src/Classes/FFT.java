@@ -5,23 +5,17 @@ import java.util.*;
 /**
  * Class FFT
  */
-public class FFT implements FourierTransformation, FourierTransformation, FourierTransformation {
+public class FFT implements FourierTransformation
+{
 
-  //
-  // Fields
-  //
 
-  
-  //
-  // Constructors
-  //
-  public FFT () { 
     // compute the FFT of x[], assuming its length n is a power of 2
-    public static Complex[] fft(Complex[] x) {
+    public static Complex[] fft(Complex[] x)
+    {
         int n = x.length;
 
         // base case
-        if (n == 1) return new Complex[] { x[0] };
+        if (n == 1) return new Complex[]{x[0]};
 
         // radix 2 Cooley-Tukey FFT
         if (n % 2 != 0) {
@@ -29,29 +23,29 @@ public class FFT implements FourierTransformation, FourierTransformation, Fourie
         }
 
         // compute FFT of even terms
-        Complex[] even = new Complex[n/2];
-        for (int k = 0; k < n/2; k++) {
-            even[k] = x[2*k];
+        Complex[] even = new Complex[n / 2];
+        for (int k = 0; k < n / 2; k++) {
+            even[k] = x[2 * k];
         }
         Complex[] evenFFT = fft(even);
 
         // compute FFT of odd terms
-        Complex[] odd  = even;  // reuse the array (to avoid n log n space)
-        for (int k = 0; k < n/2; k++) {
-            odd[k] = x[2*k + 1];
+        Complex[] odd = even;  // reuse the array (to avoid n log n space)
+        for (int k = 0; k < n / 2; k++) {
+            odd[k] = x[2 * k + 1];
         }
         Complex[] oddFFT = fft(odd);
 
         // combine
         Complex[] y = new Complex[n];
-        for (int k = 0; k < n/2; k++) {
+        for (int k = 0; k < n / 2; k++) {
             double kth = -2 * k * Math.PI / n;
             Complex wk = new Complex(Math.cos(kth), Math.sin(kth));
-            y[k]       = evenFFT[k].plus (wk.times(oddFFT[k]));
-            y[k + n/2] = evenFFT[k].minus(wk.times(oddFFT[k]));
+            y[k] = evenFFT[k].plus(wk.times(oddFFT[k]));
+            y[k + n / 2] = evenFFT[k].minus(wk.times(oddFFT[k]));
         }
         return y;
-  }
+    }
   
   //
   // Methods
@@ -81,13 +75,15 @@ public class FFT implements FourierTransformation, FourierTransformation, Fourie
         }
 
         return y;
-
     }
+
+
     
     
     
      // compute the circular convolution of x and y
-    public static Complex[] cconvolve(Complex[] x, Complex[] y) {
+    public static Complex[] cconvolve(Complex[] x, Complex[] y)
+    {
 
         // should probably pad x and y with 0s so that they have same length
         // and are powers of 2
@@ -112,7 +108,8 @@ public class FFT implements FourierTransformation, FourierTransformation, Fourie
     }
     
     // compute the linear convolution of x and y
-    public static Complex[] convolve(Complex[] x, Complex[] y) {
+    public static Complex[] convolve(Complex[] x, Complex[] y)
+    {
         Complex ZERO = new Complex(0, 0);
 
         Complex[] a = new Complex[2*x.length];
@@ -127,7 +124,8 @@ public class FFT implements FourierTransformation, FourierTransformation, Fourie
     }
 
     // compute the DFT of x[] via brute force (n^2 time)
-    public static Complex[] dft(Complex[] x) {
+    public static Complex[] dft(Complex[] x)
+    {
         int n = x.length;
         Complex ZERO = new Complex(0, 0);
         Complex[] y = new Complex[n];
@@ -159,6 +157,9 @@ public class FFT implements FourierTransformation, FourierTransformation, Fourie
    */
   public Complex countTransformation(Complex x)
   {
+      //TODO
+      Complex y = new Complex(2,3);
+      return  y;
   }
 
 

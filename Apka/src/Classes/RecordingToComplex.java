@@ -36,6 +36,8 @@ public class RecordingToComplex {
    */
   public Complex transformTo(Recording recording)
   {
+    //TODO
+    return  new Complex(1,2);
   }
 
 
@@ -45,6 +47,8 @@ public class RecordingToComplex {
    */
   public Recording transformFrom(Complex complex)
   {
+    //TODO
+    return  new Recording();
   }
 
 

@@ -33,6 +33,8 @@ public class PanelSygnalizujacyZDiodami {
    */
   public boolean wlaczony()
   {
+    //TODO
+    return true;
   }
 
 
@@ -41,6 +43,8 @@ public class PanelSygnalizujacyZDiodami {
    */
   public boolean rejestracjaDzwieku()
   {
+    //TODO
+    return true;
   }
 
 

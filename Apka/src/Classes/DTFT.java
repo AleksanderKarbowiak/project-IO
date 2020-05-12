@@ -30,24 +30,7 @@ public class DTFT {
         CzęstotliwośćPróbkowania = fs;
         
     }//Koniec konstruktora
-  
-  //
-  // Methods
-  //
 
-
-  //
-  // Accessor methods
-  //
-
-  //
-  // Other methods
-  //
-
-  /**
-   * @return       object
-   * @param        recording
-   */
  private double pulsacja(double f)
     {
         double wynik;
@@ -105,8 +88,8 @@ public class DTFT {
             
             pojedynczy = ObliczPróbkęWidma(f, próbki);
             
-            a = pojedynczy.getA();
-            b = pojedynczy.getB();
+            a = pojedynczy.getReal();
+            b = pojedynczy.getImaginary();
             
             tablica[i] = new widmo(a, b, f);
             

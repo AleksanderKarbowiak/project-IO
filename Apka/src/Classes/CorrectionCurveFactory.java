@@ -15,28 +15,7 @@ public class CorrectionCurveFactory {
   //
   // Constructors
   //
-  public CorrectionCurveFactory () { };
-  
-  //
-  // Methods
-  //
-
-
-  //
-  // Accessor methods
-  //
-
-  //
-  // Other methods
-  //
-
-  /**
-   * @return       CorrectionCurve
-   * @param        type
-   */
-  public CorrectionCurve createCurveByCorrectionType(CorrectionType type)
-  {
-  }
+  public CorrectionCurveFactory () {}
 
 
 }

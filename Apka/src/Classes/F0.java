@@ -36,15 +36,21 @@ public class F0 {
    */
   public Recording countAverage(Recording sound)
   {
+    //TODO
+    Recording recording = sound;
+    return  recording;
   }
 
 
   /**
    * @return       Recording
-   * @param        sound
+   * @param sound
    */
   public Recording countRecordingChange(Recording sound)
   {
+    //TODO
+    Recording recording = sound;
+    return  recording;
   }
 
 
