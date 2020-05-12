@@ -51,6 +51,8 @@ public class Correction {
    */
   public double countCorrection(double referenceIntensity)
   {
+    //TODO
+    return 0;
   }
 
 

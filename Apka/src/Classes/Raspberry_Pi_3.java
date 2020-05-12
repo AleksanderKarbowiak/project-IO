@@ -9,11 +9,11 @@ public class Raspberry_Pi_3 {
   // Fields
   //
 
-  private Begringer ECM8000 dzwiekSkalibrowany;
+  private Begringer_ECM8000 dzwiekSkalibrowany;
   private Ekran WyswietlanieEkranu;
   private PanelSygnalizujacyZDiodami GPIO;
   private GPIO PrzesterowanieSygnaluWejsciowegp;
-  private Wi-Fi PolaczonoZWiFo;
+  private Wi_Fi PolaczonoZWiFo;
   private Bluetooth PolaczonoPrzezBT;
   private USB PodlaczonePortyUSB_;
   private Mikrofon2 dzwiekNieskalibrowany;
@@ -36,7 +36,7 @@ public class Raspberry_Pi_3 {
    * Set the value of dzwiekSkalibrowany
    * @param newVar the new value of dzwiekSkalibrowany
    */
-  public void setDzwiekSkalibrowany (Begringer ECM8000 newVar) {
+  public void setDzwiekSkalibrowany (Begringer_ECM8000 newVar) {
     dzwiekSkalibrowany = newVar;
   }
 
@@ -44,7 +44,7 @@ public class Raspberry_Pi_3 {
    * Get the value of dzwiekSkalibrowany
    * @return the value of dzwiekSkalibrowany
    */
-  public Begringer ECM8000 getDzwiekSkalibrowany () {
+  public Begringer_ECM8000 getDzwiekSkalibrowany () {
     return dzwiekSkalibrowany;
   }
 
@@ -100,7 +100,7 @@ public class Raspberry_Pi_3 {
    * Set the value of PolaczonoZWiFo
    * @param newVar the new value of PolaczonoZWiFo
    */
-  public void setPolaczonoZWiFo (Wi-Fi newVar) {
+  public void setPolaczonoZWiFo (Wi_Fi newVar) {
     PolaczonoZWiFo = newVar;
   }
 
@@ -108,7 +108,7 @@ public class Raspberry_Pi_3 {
    * Get the value of PolaczonoZWiFo
    * @return the value of PolaczonoZWiFo
    */
-  public Wi-Fi getPolaczonoZWiFo () {
+  public Wi_Fi getPolaczonoZWiFo () {
     return PolaczonoZWiFo;
   }
 

@@ -1,6 +1,7 @@
 /**
  * Klasa służąca do przechowywania wyniku działania dyskretnej transformaty Fouriera
  */
+package Classes;
 public class widmo
 {
     private final Complex wynik;

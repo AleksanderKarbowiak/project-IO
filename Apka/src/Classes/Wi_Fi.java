@@ -3,7 +3,8 @@ package Classes;
 /**
  * Class Wi_Fi
  */
-public class Wi_Fi {
+class Wi_Fi
+{
 
   //
   // Fields
@@ -15,7 +16,7 @@ public class Wi_Fi {
   //
   // Constructors
   //
-  public Wi_Fi () { };
+  public Wi_Fi () { }
   
   //
   // Methods
@@ -67,6 +68,8 @@ public class Wi_Fi {
    */
   public String Polacz()
   {
+    //TODO
+    return  "";
   }
 
 

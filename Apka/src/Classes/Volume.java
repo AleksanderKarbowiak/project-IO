@@ -36,6 +36,8 @@ public class Volume {
    */
   public Recording calculateFlow(Recording sound)
   {
+    //TODO
+    return new Recording();
   }
 
 
@@ -45,6 +47,9 @@ public class Volume {
    */
   public Recording countAverage(Recording sound)
   {
+    //TODO
+
+    return  new Recording();
   }
 
 
