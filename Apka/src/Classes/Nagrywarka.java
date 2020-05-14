@@ -1,12 +1,8 @@
 package Classes;
 
+import java.io.*;
 import javax.sound.sampled.*;
-import java.io.File;
-import java.io.IOException;
 
-/**
- * Class Nagrywarka
- */
 public class Nagrywarka {
 
     File wavFile;
@@ -14,7 +10,7 @@ public class Nagrywarka {
     AudioFileFormat.Type fileType = AudioFileFormat.Type.WAVE;
     TargetDataLine line;
     /** Scieżka do Bazy Nagrań w której umieszczane będą pliki audio */
-    String path = "Tutaj ścieżka do folderu";
+    String path = "C:/Users/Bartek/Desktop/Inżynieria Oprogramowania/BazaNagrań/";
 
     /**
      * Metoda wywoływująca funkcję rozpoczynająca nagrywanie i zwracająca obiekt klasy Nagranie
@@ -34,7 +30,7 @@ public class Nagrywarka {
     /**
      * Metoda rozpoczynająca nagrywanie
      */
-    void Start() {
+    private void Start() {
         try {
             /** Format audio - częstotliwość próbkowania, rozmiar próbki w bitach, wybór Mono/Stereo */
             AudioFormat format = new AudioFormat(16000, 8, 2, true, true);
@@ -46,22 +42,32 @@ public class Nagrywarka {
                 System.exit(0);
             }
 
-            /** Rozpoczęcie nagrywania */
             line = (TargetDataLine) AudioSystem.getLine(info);
             line.open(format);
             line.start();
-            //System.out.println("Przechwytywanie");
             AudioInputStream ais = new AudioInputStream(line);
-            System.out.println("Nagrywanie rozpoczęte");
 
-            AudioSystem.write(ais, fileType, wavFile);
+            /** Implementacja funckcji run dla wątku */
+            Runnable runner = new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        AudioSystem.write(ais, fileType, wavFile);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            };
+
+            /** Rozpoczęcie nagrywania */
+            System.out.println("Nagrywanie rozpoczęte");
+            Thread wątek = new Thread(runner);
+            wątek.start();
+
         } catch (LineUnavailableException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
     /**
      * Metoda kończąca nagrywanie
      */
@@ -70,7 +76,19 @@ public class Nagrywarka {
         line.close();
         System.out.println("Zakończono nagrywanie");
     }
-  
+    /*
+    Resume nie działa
+
+    void Pause() {
+        line.stop();
+        System.out.println("Wstrzymano nagrywanie");
+    }
+    void Resume() {
+        line.start();
+        System.out.println("Wznowiono nagrywanie");
+    }
+     */
+
     /**
      * Set the value of path
      * @param newVar the new value of path
@@ -86,4 +104,5 @@ public class Nagrywarka {
     public String getPath () {
         return path;
     }
+
 }
