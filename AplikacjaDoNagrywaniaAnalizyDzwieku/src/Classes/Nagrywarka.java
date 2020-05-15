@@ -1,7 +1,5 @@
 package Classes;
 
-import Classes.Nagranie;
-
 import java.io.*;
 import javax.sound.sampled.*;
 
@@ -12,7 +10,7 @@ public class Nagrywarka {
     AudioFileFormat.Type fileType = AudioFileFormat.Type.WAVE;
     TargetDataLine line;
     /** Scieżka do Bazy Nagrań w której umieszczane będą pliki audio */
-    String path = "";
+    String path = "Ścieżka do bazy nagrań";
 
     /**
      * Metoda wywoływująca funkcję rozpoczynająca nagrywanie i zwracająca obiekt klasy Nagranie
