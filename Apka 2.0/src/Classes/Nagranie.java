@@ -1,6 +1,9 @@
 package Classes;
 
-public class Nagranie {
+import java.io.*;
+import java.util.*;
+
+public class Nagranie implements Serializable {
 
     String nazwa;
     String imie;
@@ -18,6 +21,22 @@ public class Nagranie {
         this.nazwa = nazwa;
         this.imie = imie;
         this.nazwisko = nazwisko;
+    }
+    public String getImie(){
+        return imie;
+    }
+
+    public String getNazwisko(){
+        return nazwisko;
+    }
+
+    public String getNazwa(){
+        return nazwa;
+    }
+
+    //metoda do wypisywania zawartości obiektu
+    public void getNagranieData(){
+        System.out.print(getImie() + " " + getNazwisko()+ " " + getNazwa() +'\n');
     }
 
 }
