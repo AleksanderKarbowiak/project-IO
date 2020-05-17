@@ -1,7 +1,5 @@
 package Classes;
 
-import Classes.Nagranie;
-
 import java.io.*;
 import javax.sound.sampled.*;
 
@@ -78,18 +76,6 @@ public class Nagrywarka {
         line.close();
         System.out.println("Zakończono nagrywanie");
     }
-    /*
-    Resume nie działa
-
-    void Pause() {
-        line.stop();
-        System.out.println("Wstrzymano nagrywanie");
-    }
-    void Resume() {
-        line.start();
-        System.out.println("Wznowiono nagrywanie");
-    }
-     */
 
     /**
      * Set the value of path
