@@ -1,7 +1,5 @@
 package Classes;
 
-import Classes.Nagranie;
-
 import java.io.*;
 import javax.sound.sampled.*;
 
