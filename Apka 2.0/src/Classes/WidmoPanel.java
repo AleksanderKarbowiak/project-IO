@@ -3,7 +3,12 @@ package Classes;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileInputStream;
 import java.nio.ByteBuffer;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Arrays;
 
 public class WidmoPanel extends JFrame{
@@ -42,7 +47,7 @@ public class WidmoPanel extends JFrame{
 
     public void wyswietlWidmo() {
         Ramka Okno;
-        DTFT Transformata;
+        dtft Transformata;
         funkcje sygnał;
 
         double fs; //Parametry próbkowania
@@ -68,25 +73,27 @@ public class WidmoPanel extends JFrame{
         f_min = -f_max;
         f_krok = fs/2000;
 
-        Transformata = new DTFT(f_min, f_max, f_krok, fs);
+        Transformata = new dtft(f_min, f_max, f_krok, fs);
         sygnał = new funkcje(fs,N);
-
-        /*String file = (String) comboBox1.getSelectedItem();
-        PlikWave plik = new PlikWave(file + ".wav");
-        plik.OtwórzIstniejącyPlik();
-        byte[] bytes = plik.PobierzKilkaPróbek(0, N*8);
-        /*ByteBuffer buf2 = ByteBuffer.wrap(bytes);
         próbki = new double[N];
-        for (int i = 0; i < N; i++)
-            próbki[i] = buf2.getDouble(i*8);
-         */
+        String file = (String) comboBox1.getSelectedItem();
 
-        próbki = sygnał.sinus(20, 5);
-        wynik = Transformata.ObliczDTFT(próbki);
-        Okno = new Ramka(600,600,"Wykres widma",10,10, wynik);
-        Okno.UstawMnieNaŚrodku();
+        try {
+            Path path = Paths.get(file+".wav");
+            byte[] data = Files.readAllBytes(path);
+            for (int i = 0; i < N; i++){
+                próbki[i] = ByteBuffer.wrap(data).getDouble();
+            }
 
-        Okno.setVisible(true);
+            wynik = Transformata.ObliczDTFT(próbki);
+            Okno = new Ramka(600,600,"Wykres widma",10,10, wynik);
+            Okno.UstawMnieNaŚrodku();
+
+            Okno.setVisible(true);
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
