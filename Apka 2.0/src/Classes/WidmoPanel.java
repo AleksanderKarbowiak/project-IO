@@ -47,7 +47,7 @@ public class WidmoPanel extends JFrame{
 
     public void wyswietlWidmo() {
         Ramka Okno;
-        dtft Transformata;
+        DTFT Transformata;
         funkcje sygnał;
 
         double fs; //Parametry próbkowania
@@ -73,7 +73,7 @@ public class WidmoPanel extends JFrame{
         f_min = -f_max;
         f_krok = fs/2000;
 
-        Transformata = new dtft(f_min, f_max, f_krok, fs);
+        Transformata = new DTFT(f_min, f_max, f_krok, fs);
         sygnał = new funkcje(fs,N);
         próbki = new double[N];
         String file = (String) comboBox1.getSelectedItem();
