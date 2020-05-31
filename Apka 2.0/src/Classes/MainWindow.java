@@ -30,6 +30,15 @@ public class MainWindow extends JFrame {
         bazaNagrań = new Baza_danych();
         bazaNagrań.pobierzListe();
 
+        widmoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame("WidmoPanel");
+                frame.setContentPane(new WidmoPanel("Title2", bazaNagrań).WidmoPanel);
+                frame.pack();
+                frame.setVisible(true);
+            }
+        });
     }
 
     public static void main(String[] args) {
@@ -57,6 +66,7 @@ public class MainWindow extends JFrame {
             frame.pack();
             frame.setVisible(true);
         }
+
     };
 
     ActionListener stopListener = new ActionListener() {
