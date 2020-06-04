@@ -29,9 +29,16 @@ public class MainWindow extends JFrame {
         bazaNagranButton.addActionListener(addNewForm);
         bazaNagrań = new Baza_danych();
         bazaNagrań.pobierzListe();
-        
-        czestotliwoscF0Button.addActionListener(obliczF0Panel);
 
+        widmoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame("WidmoPanel");
+                frame.setContentPane(new WidmoPanel("Title2", bazaNagrań).WidmoPanel);
+                frame.pack();
+                frame.setVisible(true);
+            }
+        });
     }
 
     public static void main(String[] args) {
@@ -59,18 +66,9 @@ public class MainWindow extends JFrame {
             frame.pack();
             frame.setVisible(true);
         }
+
     };
-    
-    ActionListener obliczF0Panel = new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            JFrame frame = new JFrame("Oblicz F0");
-            frame.setContentPane(new F0Panel("Oblicz F0", bazaNagrań).F0Panel);
-            frame.pack();
-            frame.setVisible(true);
-        }
-    };
-    
+
     ActionListener stopListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {

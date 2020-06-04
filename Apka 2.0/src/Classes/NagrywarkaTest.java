@@ -1,5 +1,9 @@
 package Classes;
 
+<<<<<<< HEAD
+=======
+import org.junit.Test;
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
 import java.io.File;
 
 
@@ -16,7 +20,11 @@ public class NagrywarkaTest {
     int dlugoscRekordu = 4;
 
 
+<<<<<<< HEAD
     @org.junit.Test
+=======
+    @Test
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
     public void testNagrania() {
 
         try{

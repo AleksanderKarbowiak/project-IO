@@ -1,7 +1,9 @@
 package Classes;
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.*;
 
 /**
  * Class Baza_danych
@@ -20,7 +22,7 @@ public class Baza_danych {
       try
       {
           //deserializacja do listy
-          FileInputStream fis = new FileInputStream("nagraniaData.dat");
+          FileInputStream fis = new FileInputStream("nagraniaData");
           ObjectInputStream ois = new ObjectInputStream(fis);
 
           nagrania = (ArrayList) ois.readObject();
@@ -42,7 +44,7 @@ public class Baza_danych {
   public void zapiszListe() {
       try{
           //serializujemy bazę do pliku
-          FileOutputStream fos = new FileOutputStream("nagraniaData.dat");
+          FileOutputStream fos = new FileOutputStream("nagraniaData");
           ObjectOutputStream oos = new ObjectOutputStream(fos);
           oos.writeObject(nagrania);
           oos.close();

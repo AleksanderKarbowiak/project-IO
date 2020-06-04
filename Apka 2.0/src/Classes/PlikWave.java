@@ -13,7 +13,11 @@ import java.io.RandomAccessFile;
  * @author Piotr Wrzeciono
  * @since 2016.02.19
  */
+<<<<<<< HEAD
 public class PlikWave
+=======
+public class PlikWave 
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
 {
     /**Nagłówek pliku WAVE - musi być prywatny, gdyż tylko określone pola podlegają modyfikacji w trakcie dopisywania, ale długość nie ulega zmianie. */
     private NagłówekPlikuWave Nagłówek;
@@ -25,10 +29,17 @@ public class PlikWave
     private String NazwaPliku;
     /**Wielkość bufora nagłówka pliku wave - wartośc potrzebna przy wielu operacjach. */
     private int WielkośćBuforaNagłówka;
+<<<<<<< HEAD
 
     /**Status operacji dokonywanych na pliku. */
     private int status;
 
+=======
+    
+    /**Status operacji dokonywanych na pliku. */
+    private int status;
+    
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
     /**Operacja zakończyła się powodzeniem. */
     public static final int BRAK_BŁĘDÓW = 0;
     /**Próbowano odczytać plik, który fizycznie nie istnieje (jeszcze). */
@@ -53,7 +64,11 @@ public class PlikWave
     public static final int PODANY_PLIK_JUŻ_ISTNIEJE = 10;
     /**Próba utworzenia nowego pliku się nie powiodła - powód za bardzo nie ma zanczenia. */
     public static final int NIE_UDAŁO_SIĘ_UTWORZYĆ_PLIKU = 11;
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
     /**
      * Metoda zwracająca tekstowy opis stałych - może być potrzebna w razie testów.
      * @param nr Numer stałej -> stałe dotyczące statusu.
@@ -62,10 +77,17 @@ public class PlikWave
     public static String OpisStatusu(int nr)
     {
         String opis;
+<<<<<<< HEAD
 
         opis = "";
 
 
+=======
+        
+        opis = "";
+        
+        
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
         if(nr == BRAK_BŁĘDÓW) opis = "Brak błędów";
         if(nr == PLIK_NIE_ISTNIEJE) opis = "Podany plik nie istnieje";
         if(nr == NIE_UDAŁO_SIĘ_OTWORZYĆ_PLIKU) opis = "Nie udało się otworzyć pliku!";
@@ -78,6 +100,7 @@ public class PlikWave
         if(nr == BŁĄD_PODCZAS_ZAMYKANIA_PLIKU) opis = "Błąd podczas zamykania pliku wave";
         if(nr == PODANY_PLIK_JUŻ_ISTNIEJE) opis = "Podany plik już istnieje - nie można go utworzyć jako nowego!";
         if(nr == NIE_UDAŁO_SIĘ_UTWORZYĆ_PLIKU) opis = "Nie udało się utworzyć pliku!";
+<<<<<<< HEAD
 
         return opis;
 
@@ -89,6 +112,19 @@ public class PlikWave
      * Konstruktor powołuje tylki instancję klasy File oraz zapamiętuje nazwę pliku.<br>
      * Do pozostałych czynności używa się innych metod.
      * @param NazwaPliku
+=======
+        
+        return opis;
+        
+    }//Koniec metody zwracającej opis statusu
+    
+    /**
+     * Konstruktor klasy tworzący instancję pliku wave.
+     * 
+     * Konstruktor powołuje tylki instancję klasy File oraz zapamiętuje nazwę pliku.<br>
+     * Do pozostałych czynności używa się innych metod.
+     * @param NazwaPliku 
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
      */
     public PlikWave(String NazwaPliku)
     {
@@ -103,9 +139,15 @@ public class PlikWave
         }catch(Exception ex){
             status = BŁĄD_PODCZAS_TWORZENIA_INSTANCJI_FILE;
         }//Koniec przechwytywania wyjątku
+<<<<<<< HEAD
 
     }//Koniec konstruktora
 
+=======
+        
+    }//Koniec konstruktora
+    
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
     /**
      * Metoda zwracająca status pliku wave.
      * @return Status pliku wave (jedna ze stałych zdefiniowana na początku).
@@ -114,7 +156,11 @@ public class PlikWave
     {
         return status;
     }//koniec getStatusPlikuWave
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
     /**
      * Metoda zwracająca status nagłówka pliku wave
      * @return <b>null</b>, gdy nagłówek nie został jeszcze utworzony. W innym przypadku tablica jedno lub ośmio-elementowa.
@@ -122,6 +168,7 @@ public class PlikWave
     public int[] getStatusNagłówkaPlikuWave()
     {
         int[] status_wave;
+<<<<<<< HEAD
 
         status_wave = null;
 
@@ -133,17 +180,38 @@ public class PlikWave
     /**
      * Metoda służy do otworzenia już istniejącego pliku.
      *
+=======
+        
+        status_wave = null;
+        
+        if(Nagłówek != null) status_wave = Nagłówek.getPoprawnośćNagłówka();
+        
+        return status_wave;
+    }//Koniec getStatusPlikuWave
+    
+    /**
+     * Metoda służy do otworzenia już istniejącego pliku.
+     * 
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
      * Sam konstruktor tworzy tylko instancję klasy <b><i>File</i></b>, gdyż nie wiadomo, co programista chce zrobić.
      * Do otworzenia istniejącego już pliku służy właśnie ta metoda.
      */
     public void OtwórzIstniejącyPlik()
     {
         byte[] DaneNagłówkaPlikuWave;
+<<<<<<< HEAD
 
         WielkośćBuforaNagłówka = 0;
 
         if(this.PlikNaDyskuFile.exists() == false) status = PLIK_NIE_ISTNIEJE;
 
+=======
+        
+        WielkośćBuforaNagłówka = 0;
+        
+        if(this.PlikNaDyskuFile.exists() == false) status = PLIK_NIE_ISTNIEJE;
+        
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
         if(status != PLIK_NIE_ISTNIEJE) //Gdy strumień wejściowy != null, nie ma sensu wywoływanie tego polecenia.
         {
             try{
@@ -153,44 +221,77 @@ public class PlikWave
                 status = NIE_UDAŁO_SIĘ_OTWORZYĆ_PLIKU;
                 PlikNaDysku = null; //Usunięcie obiektu z pamięci!
             }//end catch
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
             if(status == BRAK_BŁĘDÓW)
             {
                 WielkośćBuforaNagłówka = this.PodajPozycjęData() + 8;
             }//end if
+<<<<<<< HEAD
 
             if(status == BRAK_BŁĘDÓW)
             {
                 DaneNagłówkaPlikuWave = new byte[WielkośćBuforaNagłówka];
 
+=======
+            
+            if(status == BRAK_BŁĘDÓW)
+            {
+                DaneNagłówkaPlikuWave = new byte[WielkośćBuforaNagłówka];
+                
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
                 try{
                     PlikNaDysku.seek(0); //Próba ustawienia pozycji
                     PlikNaDysku.read(DaneNagłówkaPlikuWave);
                 }catch(Exception ex){
                     status = BŁĄD_PODCZAS_ODCZYTU;
                 }
+<<<<<<< HEAD
 
                 if(status == BRAK_BŁĘDÓW) //Finalnie! Można utworzyć nagłówek pliku!!!
                 {
                     Nagłówek = new NagłówekPlikuWave(DaneNagłówkaPlikuWave);
 
+=======
+                
+                if(status == BRAK_BŁĘDÓW) //Finalnie! Można utworzyć nagłówek pliku!!!
+                {
+                    Nagłówek = new NagłówekPlikuWave(DaneNagłówkaPlikuWave);
+                                   
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
                     if(Nagłówek.getPoprawnośćNagłówka().length != 1) //Jednak coś poszło nie tak!
                     {
                         status = BŁĘDNY_NAGŁÓWEK;
                     }//end if
                 }//end if
+<<<<<<< HEAD
 
             }//end if
 
+=======
+                
+            }//end if
+  
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
         }else
         {
             if(status == BRAK_BŁĘDÓW) status = PLIK_JUŻ_JEST_OTWARTY;
         }//end if
     }//Koniec metody otwierającej istniejący plik.
+<<<<<<< HEAD
 
     /**
      * Metoda zamykająca plik wave.
      *
+=======
+    
+    /**
+     * Metoda zamykająca plik wave.
+     * 
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
      * <div style="color:red"><b>UWAGA! Wywołanie tej metody pociąga za sobą również: wykasnowanie nagłówka pliku oraz usunięcie dostępu do obiektu reprezentującego plik binarny.</b></div>
      */
     public void ZamknijPlik()
@@ -198,15 +299,24 @@ public class PlikWave
         if(PlikNaDysku != null) //Tylko wtedy ma to sens!
         {
             try{
+<<<<<<< HEAD
 
                 PlikNaDysku.close();
 
                 status = BRAK_BŁĘDÓW;
 
+=======
+                
+                PlikNaDysku.close();
+                
+                status = BRAK_BŁĘDÓW;
+                
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
             }catch(Exception ex)
             {
                 status = BŁĄD_PODCZAS_ZAMYKANIA_PLIKU;
             }//end try-catch
+<<<<<<< HEAD
 
             PlikNaDysku = null; //Wszystko zerujemy!
             Nagłówek = null;
@@ -219,6 +329,20 @@ public class PlikWave
     /**
      * Metoda wyszukująca na początku pliku słowa kluczowego 'data'.
      *
+=======
+            
+            PlikNaDysku = null; //Wszystko zerujemy!
+            Nagłówek = null;
+            WielkośćBuforaNagłówka = 0;
+            
+        }//end if
+        
+    }//Metoda zamykająca plik
+    
+    /**
+     * Metoda wyszukująca na początku pliku słowa kluczowego 'data'.
+     * 
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
      * Celem tej metody jest pomoc w wyliczeniu wielkości nagłówka. W pliku WAVE może mieć on różną długość, ale 'data' jest ostatnim słowem kluczowym nagłówka.<br>
      * Za słowem 'data' są 4 bajty zawierające w sobie wielkość bloku danych oraz same dane.
      * @return Pozycja tekstu 'data'.
@@ -232,6 +356,7 @@ public class PlikWave
         int IleSięDałoOdczytać;
         int j;
         int ile_poprawnych;
+<<<<<<< HEAD
 
         pozycja = 35;
         bufor = new byte[10000];
@@ -241,15 +366,33 @@ public class PlikWave
 
         ile_poprawnych = 0;
 
+=======
+        
+        pozycja = 35;
+        bufor = new byte[10000];
+        IleSięDałoOdczytać = 0;
+        
+        słowo_data = new byte[]{'d','a','t','a'};
+        
+        ile_poprawnych = 0;
+        
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
         try{
             PlikNaDysku.seek(0);
             status = BRAK_BŁĘDÓW;
         }catch(Exception ex){
             status = BŁĄD_USTAWIANIA_POZYCJI_W_PLIKU;
+<<<<<<< HEAD
 
             pozycja = -1;
         }//Koniec try-catch
 
+=======
+            
+            pozycja = -1;
+        }//Koniec try-catch
+        
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
         if(status == BRAK_BŁĘDÓW) //teraz odczytujemy;
         {
             try{
@@ -258,11 +401,19 @@ public class PlikWave
                 status = BŁĄD_PODCZAS_ODCZYTU;
             }
         }//end if
+<<<<<<< HEAD
 
         if(status == BRAK_BŁĘDÓW)
         {
             i = 30;
 
+=======
+        
+        if(status == BRAK_BŁĘDÓW)
+        {
+            i = 30;
+            
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
             do{
                 ile_poprawnych = 0;
                 if(i + słowo_data.length < IleSięDałoOdczytać)//zabezpieczenie przez przekroczeniem indeksu
@@ -272,6 +423,7 @@ public class PlikWave
                         if(bufor[j] == słowo_data[j - i]) ile_poprawnych++;
                     }//next i
                 }//end if
+<<<<<<< HEAD
 
                 if(ile_poprawnych < słowo_data.length) i++; //Następna pozycja
 
@@ -283,6 +435,19 @@ public class PlikWave
         return pozycja;
     }//Koniec szukania pozycji 'data'
 
+=======
+                
+                if(ile_poprawnych < słowo_data.length) i++; //Następna pozycja
+                
+            }while(i < bufor.length && ile_poprawnych < słowo_data.length);
+            
+            if(ile_poprawnych == słowo_data.length) pozycja = i;
+        }//end if
+        
+        return pozycja;
+    }//Koniec szukania pozycji 'data'
+    
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
     /**
      * Metoda zwraca wielkość pliku na dysku [B].
      * @return Wielkość pliku
@@ -290,6 +455,7 @@ public class PlikWave
     public long getWielkośćPliku()
     {
         long wielkość;
+<<<<<<< HEAD
 
         wielkość = 0;
 
@@ -298,6 +464,16 @@ public class PlikWave
         return wielkość;
     }//Koniec metody zwracającej wielkość pliku na dysku
 
+=======
+        
+        wielkość = 0;
+        
+        if(PlikNaDyskuFile.exists()) wielkość = PlikNaDyskuFile.length();
+        
+        return wielkość;
+    }//Koniec metody zwracającej wielkość pliku na dysku
+    
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
     /**
      * Metoda zwracająca liczbę kanałów w pliku wave.
      * @return 0, gdy nie ma nagłówka, 1 - mono, 2 - stereo itd.
@@ -305,6 +481,7 @@ public class PlikWave
     public int getLiczbaKanałów()
     {
         int ile;
+<<<<<<< HEAD
 
         ile = 0;
 
@@ -313,6 +490,16 @@ public class PlikWave
         return ile;
     }//Koniec metody zwracającej liczbę kanałów
 
+=======
+        
+        ile = 0;
+        
+        if(Nagłówek != null) ile = Nagłówek.getLiczbęKanałów();
+        
+        return ile;
+    }//Koniec metody zwracającej liczbę kanałów
+    
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
     /**
      * Metoda zwracająca liczbę bitów służących do kodowania amplitudy sgnału.
      * @return 0, gdy nie ma nagłówka, potem wielokrotność 8 - bitów: 8, 16, 24 oraz 32.
@@ -320,6 +507,7 @@ public class PlikWave
     public int getLiczbęBitów()
     {
         int ile;
+<<<<<<< HEAD
 
         ile = 0;
 
@@ -328,6 +516,16 @@ public class PlikWave
         return ile;
     }//Koniec metody zwracającej liczbę bitów
 
+=======
+        
+        ile = 0;
+        
+        if(Nagłówek != null) ile = Nagłówek.getLiczbęBitów();
+        
+        return ile;
+    }//Koniec metody zwracającej liczbę bitów
+    
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
     /**
      * Metoda zwraca wielkość całego segmentu danych, zawierającą próbkę ze wszystkich kanałów.
      * @return 0, gdy nie ma nagłówka, wartość dodatnią, gdy nagłówek jest.
@@ -335,6 +533,7 @@ public class PlikWave
     public int getLiczbęBajtówNaCałąPróbkę()
     {
         int ile;
+<<<<<<< HEAD
 
         ile = 0;
 
@@ -343,6 +542,16 @@ public class PlikWave
         return ile;
     }//Koniec metody zwracającej liczbę bajtów w całej próbce
 
+=======
+        
+        ile = 0;
+        
+        if(Nagłówek != null) ile = Nagłówek.getLiczbęBajtówNaCałąPróbkę();
+        
+        return ile;
+    }//Koniec metody zwracającej liczbę bajtów w całej próbce
+    
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
     /**
      * Metoda zwraca szybkość (częstotliwość) bajtową sygnału w pliku WAVE.
      * @return 0, gdy nie ma nagłówka. Gdy jest nagłówek, jest to wartość w [B/s].
@@ -350,6 +559,7 @@ public class PlikWave
     public long getCzęstotliwośćBajtową()
     {
         long ile;
+<<<<<<< HEAD
 
         ile = 0;
 
@@ -358,6 +568,16 @@ public class PlikWave
         return ile;
     }//Koniec metody zwracającej liczbę bitów
 
+=======
+        
+        ile = 0;
+        
+        if(Nagłówek != null) ile = Nagłówek.getCzęstotliwośćBajtową();
+        
+        return ile;
+    }//Koniec metody zwracającej liczbę bitów
+    
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
     /**
      * Metoda zwracająca wielkość nagłówka (minimum 44 bajty).
      * @return 0, gdy nie ma nagłówka, wartosć 44 lub większą, gdy nagłówek jest.
@@ -365,6 +585,7 @@ public class PlikWave
     public int getWielkośćNagłówka()
     {
         int ile_bajtów;
+<<<<<<< HEAD
 
         ile_bajtów = 0;
 
@@ -376,12 +597,26 @@ public class PlikWave
     /**
      * Metoda zwraca wielkość danych dźwiękowych w pliku wave.
      *
+=======
+        
+        ile_bajtów = 0;
+        
+        if(Nagłówek != null) ile_bajtów = Nagłówek.getBajtyNagłówka().length;
+        
+        return ile_bajtów;
+    }//Koniec metody zwracającek wielkość nagłówka
+    
+    /**
+     * Metoda zwraca wielkość danych dźwiękowych w pliku wave.
+     * 
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
      * Wartość ta jest istotna, gdyż wave może przechowywać różne dane, nie tylko dźwięk.
      * @return 0, gdy nie ma nagłówka, wartość większa od 0, gdy nagłówek jest i dane dźwiękowe również są obecne w pliku.
      */
     public long getWielkośćBlokuDanych()
     {
         long ile;
+<<<<<<< HEAD
 
         ile = 0;
 
@@ -390,6 +625,16 @@ public class PlikWave
         return ile;
     }//Koniec metody zwracającej wielkość bloku z danymi
 
+=======
+        
+        ile = 0;
+        
+        if(Nagłówek != null) ile = Nagłówek.getDługośćBlokuDanychSygnału();
+        
+        return ile;
+    }//Koniec metody zwracającej wielkość bloku z danymi
+    
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
     /**
      * Metoda zwracająca dodatkowe parametry z nagłówka (może być cokolwiek, byle ASCII).
      * @return "", gdy nic nie ma (może nie być nagłówka, ale też parametrów dodatkowych).
@@ -397,6 +642,7 @@ public class PlikWave
     public String getDodatkoweParametry()
     {
         String Dodatki;
+<<<<<<< HEAD
 
         Dodatki = "";
 
@@ -405,6 +651,16 @@ public class PlikWave
         return Dodatki;
     }//Koniec metody zwracającej dodatkowe parametry
 
+=======
+        
+        Dodatki = "";
+        
+        if(Nagłówek != null) Dodatki = Nagłówek.getDodatkoweParametry();
+        
+        return Dodatki;
+    }//Koniec metody zwracającej dodatkowe parametry
+    
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
     /**
      * Metoda zwracająca częstotliwość próbkowania.
      * @return 0, gdy nie ma nagłówka, albo inną wartość, np. 32000, 44100, 48000 itd. Jednostką jest [Hz].
@@ -412,6 +668,7 @@ public class PlikWave
     public long getCzęstotliwośćPróbkowania()
     {
         long ile;
+<<<<<<< HEAD
 
         ile = 0;
 
@@ -421,6 +678,17 @@ public class PlikWave
     }//Koniec metody zwracającej częstotliwość próbkowania
 
 
+=======
+        
+        ile = 0;
+        
+        if(Nagłówek != null) ile = Nagłówek.getCzęstotliwośćPróbkowania();
+        
+        return ile;
+    }//Koniec metody zwracającej częstotliwość próbkowania
+    
+    
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
     /**
      * Metoda zwracająca kodowanie audio.
      * @return Kodowanie audio -> dokumentacja klasy NagłówekPlikuWave. Gdy wartość == -1, to oznacza, że nie ma nagłówka.
@@ -428,6 +696,7 @@ public class PlikWave
     public int getKodowanieAudio()
     {
         int kod;
+<<<<<<< HEAD
 
         kod = -1;
 
@@ -436,6 +705,16 @@ public class PlikWave
         return kod;
     }//Koniec metody zwracającej kodowanie audio
 
+=======
+        
+        kod = -1;
+        
+        if(Nagłówek != null) kod = Nagłówek.getKodowanieDźwięku();
+        
+        return kod;
+    }//Koniec metody zwracającej kodowanie audio
+    
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
     /**
      * Odczyt pojedynczej próbki (wszystkich kanałów) z pliku. Próbki numerujemu od 0.
      * @param k Numer próbki sygnału
@@ -446,18 +725,32 @@ public class PlikWave
         byte[] bufor;
         long pozycja;
         long ile_odczytano;
+<<<<<<< HEAD
 
         bufor = null;
 
+=======
+        
+        bufor = null;        
+        
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
         if(PlikNaDysku != null && k < this.getLiczbęPróbek())
         {
             pozycja = (k * (long)Nagłówek.getLiczbęBajtówNaCałąPróbkę()) + (long)this.WielkośćBuforaNagłówka;
             bufor = new byte[Nagłówek.getLiczbęBajtówNaCałąPróbkę()];
+<<<<<<< HEAD
 
             try{
                 PlikNaDysku.seek(pozycja);
                 ile_odczytano = PlikNaDysku.read(bufor);
 
+=======
+            
+            try{
+                PlikNaDysku.seek(pozycja);
+                ile_odczytano = PlikNaDysku.read(bufor);
+                
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
                 if(ile_odczytano < bufor.length)
                 {
                     status = BŁĄD_PODCZAS_ODCZYTU;
@@ -466,6 +759,7 @@ public class PlikWave
                 {
                     status = BRAK_BŁĘDÓW;
                 }//end if
+<<<<<<< HEAD
 
             }catch(Exception ex){
 
@@ -479,6 +773,21 @@ public class PlikWave
         return bufor;
     }//Koniec pobierania całej próbki;
 
+=======
+                
+            }catch(Exception ex){
+                
+                status = BŁĄD_PODCZAS_ODCZYTU;
+                bufor = null;
+                
+            }//end try-catch
+        }//end if
+        
+        
+        return bufor;
+    }//Koniec pobierania całej próbki;
+    
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
     /**
      * Metoda zwracająca liczbę próbek w pliku wave.
      * @return Liczba próbek w bloku danych dźwiękowych.
@@ -486,18 +795,32 @@ public class PlikWave
     public long getLiczbęPróbek()
     {
         long liczba;
+<<<<<<< HEAD
 
         liczba = -1;
 
+=======
+        
+        liczba = -1;
+        
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
         if(Nagłówek != null)
         {
             liczba = Nagłówek.getDługośćBlokuDanychSygnału()/(long)Nagłówek.getLiczbęBajtówNaCałąPróbkę();
         }//end if
+<<<<<<< HEAD
 
         return liczba;
     }//Koniec metody zwracającej liczbę próbek
 
 
+=======
+        
+        return liczba;
+    }//Koniec metody zwracającej liczbę próbek
+    
+    
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
     /**
      * Metoda odczytująca wszystkie próbki sygnału z pliku.
      * <div style="color:red"><b>UWAGA!! Maksymalnie można wczytać 2GB danych!!</b></div>
@@ -507,6 +830,7 @@ public class PlikWave
     {
         byte[] wszystko;
         long ile_odczytano;
+<<<<<<< HEAD
 
         wszystko = null;
 
@@ -519,6 +843,20 @@ public class PlikWave
 
                 ile_odczytano = PlikNaDysku.read(wszystko);
 
+=======
+        
+        wszystko = null;
+        
+        if(PlikNaDysku != null)
+        {
+            wszystko = new byte[(int)Nagłówek.getDługośćBlokuDanychSygnału()]; //Mniej niż 2GB !!!
+            
+            try{
+                PlikNaDysku.seek(this.getWielkośćNagłówka());
+                                
+                ile_odczytano = PlikNaDysku.read(wszystko);
+                
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
                 if(ile_odczytano < wszystko.length)
                 {
                     status = BŁĄD_PODCZAS_ODCZYTU;
@@ -527,22 +865,39 @@ public class PlikWave
                 {
                     status = BRAK_BŁĘDÓW;
                 }//end if
+<<<<<<< HEAD
 
+=======
+                
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
             }catch(Exception ex){
                 status = BŁĄD_PODCZAS_ODCZYTU;
                 wszystko = null;
             }//end try-catch
+<<<<<<< HEAD
 
         }//end if
 
         return wszystko;
     }//Koniec metody odczytującej wszystkie próbki
 
+=======
+            
+        }//end if
+        
+        return wszystko;
+    }//Koniec metody odczytującej wszystkie próbki
+    
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
     /**
      * Metoda służąca do pobrania kilku próbek z pliku wave.
      * @param k Numer próbki - liczymy od 0.
      * @param ile Liczba próbek do pobrania - liczymy o d 1.
+<<<<<<< HEAD
      * @return
+=======
+     * @return 
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
      */
     public byte[] PobierzKilkaPróbek(long k, int ile)
     {
@@ -550,21 +905,38 @@ public class PlikWave
         long pozycja;
         int ile_bajtów;
         long ile_odczytano;
+<<<<<<< HEAD
 
         ile_bajtów = ile * Nagłówek.getLiczbęBajtówNaCałąPróbkę();
 
         bufor = null;
 
+=======
+        
+        ile_bajtów = ile * Nagłówek.getLiczbęBajtówNaCałąPróbkę();
+        
+        bufor = null;
+        
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
         if(PlikNaDysku != null && k + ile <= this.getLiczbęPróbek())
         {
             bufor = new byte[ile_bajtów];
             pozycja = (k * (long)Nagłówek.getLiczbęBajtówNaCałąPróbkę()) + this.getWielkośćNagłówka();
+<<<<<<< HEAD
 
             try{
                 PlikNaDysku.seek(pozycja);
 
                 ile_odczytano = PlikNaDysku.read(bufor);
 
+=======
+            
+            try{
+                PlikNaDysku.seek(pozycja);
+                
+                ile_odczytano = PlikNaDysku.read(bufor);
+                
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
                 if(ile_odczytano < bufor.length)
                 {
                     status = BŁĄD_PODCZAS_ODCZYTU;
@@ -578,6 +950,7 @@ public class PlikWave
                 bufor = null;
             }
         }//end if
+<<<<<<< HEAD
 
         return bufor;
     }//Koniec metody pobierającej kilka próbek
@@ -585,6 +958,15 @@ public class PlikWave
     /**
      * Metoda służąca do tworzenia nowego pliku.
      *
+=======
+        
+        return bufor;
+    }//Koniec metody pobierającej kilka próbek
+    
+    /**
+     * Metoda służąca do tworzenia nowego pliku.
+     * 
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
      * <div style="color:red"><b>UWAGA! Jeżeli plik już istnieje, to zostanie wygenerowany błąd.</b></div>
      * @param LiczbaBitów Liczba bitów w próbce
      * @param LiczbaKanałów Liczba kanałów
@@ -600,7 +982,11 @@ public class PlikWave
         }else
         {
             Nagłówek = new NagłówekPlikuWave(LiczbaBitów, LiczbaKanałów, CzęstotliwośćPróbkowania, ParametryDodatkowe, KodowanieDanych); //Tworzymy nowy nagłówek
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
             if(Nagłówek.getPoprawnośćNagłówka().length != 1)
             {
                 status = BŁĘDNY_NAGŁÓWEK;
@@ -612,7 +998,11 @@ public class PlikWave
                 }catch(Exception ex){
                     status = NIE_UDAŁO_SIĘ_UTWORZYĆ_PLIKU;
                 }
+<<<<<<< HEAD
 
+=======
+                
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
                 if(status == BRAK_BŁĘDÓW)
                 {
                     try{
@@ -622,12 +1012,21 @@ public class PlikWave
                     }//end try
                 }//end if BRAK_BŁĘDÓW
             }//end if Czy nagłówek jest poprawny
+<<<<<<< HEAD
 
         }//end if PlikNaDyskuFile.exist()
 
     }//Koniec metody tworzącej nowy plik
 
 
+=======
+            
+        }//end if PlikNaDyskuFile.exist()
+        
+    }//Koniec metody tworzącej nowy plik
+    
+    
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
     /**
      * Metoda dopisująca dane do pliku Wave.
      * @param dane_do_dopisania Tablica z danymi do zapisania (tablica bajtów)
@@ -641,17 +1040,30 @@ public class PlikWave
         long nowa_wielkość_bloku_danych;
         long nowa_wielkość_pliku;
         byte[] dane_dodatkowe;
+<<<<<<< HEAD
 
 
         status = BRAK_BŁĘDÓW;
         stara_wielkość_pliku = PlikNaDyskuFile.length();
         dane_dodatkowe = null;
 
+=======
+        
+        
+        status = BRAK_BŁĘDÓW;
+        stara_wielkość_pliku = PlikNaDyskuFile.length();
+        dane_dodatkowe = null;
+        
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
         if(Nagłówek.getRozmiarDanychPlikuWave() + 8 > stara_wielkość_pliku) //Po nieudanej próbie zapisu odtwarzamy nagłówek!
         {
             Nagłówek.setRozmiarDanych(stara_wielkość_pliku - 8);
             dane_dodatkowe = this.OdczytajDanePozaDźwiękiem();
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
             if(dane_dodatkowe == null)
             {
                 Nagłówek.setDługośćBlokuDanychSygnału(stara_wielkość_pliku - this.getWielkośćNagłówka());
@@ -659,15 +1071,24 @@ public class PlikWave
             {
                 Nagłówek.setDługośćBlokuDanychSygnału(stara_wielkość_pliku - this.getWielkośćNagłówka() - dane_dodatkowe.length);
             }//end if
+<<<<<<< HEAD
 
         }//end if
 
 
 
+=======
+            
+        }//end if
+        
+        
+        
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
         if(Nagłówek != null) //Tylko w tym przypadku warto coś robić!
         {
             stara_wielkość_danych_w_nagłówku = stara_wielkość_pliku - 8;
             nowa_wielkość_danych_w_nagłówku = stara_wielkość_danych_w_nagłówku + (long)dane_do_dopisania.length;
+<<<<<<< HEAD
 
             stara_wielkość_bloku_danych = Nagłówek.getDługośćBlokuDanychSygnału();
             nowa_wielkość_bloku_danych = stara_wielkość_bloku_danych + (long)dane_do_dopisania.length;
@@ -691,16 +1112,46 @@ public class PlikWave
 
                     nowa_wielkość_pliku = PlikNaDyskuFile.length();
 
+=======
+            
+            stara_wielkość_bloku_danych = Nagłówek.getDługośćBlokuDanychSygnału();
+            nowa_wielkość_bloku_danych = stara_wielkość_bloku_danych + (long)dane_do_dopisania.length;
+            
+            
+            if(status == BRAK_BŁĘDÓW) //Jeżeli odczyt danych zakończył się sukcesem
+            {
+                
+                Nagłówek.setDługośćBlokuDanychSygnału(nowa_wielkość_bloku_danych);
+                Nagłówek.setRozmiarDanych(nowa_wielkość_danych_w_nagłówku);
+                
+                try{
+                    if(PlikNaDyskuFile.length() > 0) PlikNaDysku.seek(0);
+                    
+                    PlikNaDysku.write(Nagłówek.getBajtyNagłówka());
+                    
+                    
+                    PlikNaDysku.seek(stara_wielkość_pliku);
+                    PlikNaDysku.write(dane_do_dopisania);
+                    if(dane_dodatkowe != null) PlikNaDysku.write(dane_dodatkowe);
+                    
+                    nowa_wielkość_pliku = PlikNaDyskuFile.length();
+                    
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
                     if(nowa_wielkość_pliku != stara_wielkość_pliku + dane_do_dopisania.length)
                     {
                         status = BŁĄD_PODCZAS_ZAPISU;
                     }//end if
+<<<<<<< HEAD
 
+=======
+                    
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
                 }catch(Exception ex){
                     status = BŁĄD_PODCZAS_ZAPISU;
                 }//end try
             }//end if BRAK_BŁĘDÓW
         }//end if Nagłówek != null;
+<<<<<<< HEAD
 
     }//Koniec metody dopisującej do pliku
 
@@ -709,12 +1160,23 @@ public class PlikWave
      *
      * Odczytane dane muszą pozostać w pliku w postaci niezmienionej.
      *
+=======
+        
+    }//Koniec metody dopisującej do pliku
+    
+    /**
+     * Metoda służąca do odczytywania danych znajdujących się poza danymi dźwiękowymi, jeżeli oczywiście takie są.
+     * 
+     * Odczytane dane muszą pozostać w pliku w postaci niezmienionej.
+     * 
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
      * @return <b>null</b>, gdy nic nie ma, albo tablica bajtów, gdy coś jest.
      */
     private byte[] OdczytajDanePozaDźwiękiem()
     {
         byte[] dodatkowe_dane;
         int ile_dodatkowych_danych;
+<<<<<<< HEAD
 
         long wielkość_nagłówka;
         long wielkość_bloku_danych;
@@ -730,17 +1192,41 @@ public class PlikWave
         wielkość_bloku_danych = Nagłówek.getDługośćBlokuDanychSygnału();
         wielkość_pliku = PlikNaDyskuFile.length();
 
+=======
+        
+        long wielkość_nagłówka;
+        long wielkość_bloku_danych;
+        long wielkość_pliku;
+        
+        long pozycja;
+        
+        status = BRAK_BŁĘDÓW;
+        
+        dodatkowe_dane = null;
+        
+        wielkość_nagłówka = this.getWielkośćNagłówka();
+        wielkość_bloku_danych = Nagłówek.getDługośćBlokuDanychSygnału();
+        wielkość_pliku = PlikNaDyskuFile.length();
+        
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
         if(wielkość_pliku > wielkość_bloku_danych + wielkość_nagłówka) //To znaczy, że są jakieś dane!
         {
             ile_dodatkowych_danych = (int)(wielkość_pliku - wielkość_bloku_danych - wielkość_nagłówka); //Tego nie może być zbyt dużo!
             dodatkowe_dane = new byte[ile_dodatkowych_danych];
+<<<<<<< HEAD
 
             pozycja = wielkość_nagłówka + wielkość_bloku_danych;
 
+=======
+            
+            pozycja = wielkość_nagłówka + wielkość_bloku_danych;
+            
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
             try{
                 PlikNaDysku.seek(pozycja);
                 PlikNaDysku.read(dodatkowe_dane);
             }catch(Exception ex){
+<<<<<<< HEAD
 
                 status = BŁĄD_PODCZAS_ODCZYTU;
             }//end try-catch
@@ -753,4 +1239,18 @@ public class PlikWave
 
 
 
+=======
+                
+                status = BŁĄD_PODCZAS_ODCZYTU;
+            }//end try-catch
+            
+        }//end if 
+        
+        return dodatkowe_dane;
+        
+    }//Koniec metody odczytującej dane poza danymi dźwiękowymi w pliku.
+    
+    
+    
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
 }//Koniec klasy
