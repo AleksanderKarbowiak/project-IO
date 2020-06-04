@@ -5,10 +5,8 @@ import java.util.*;
 /**
  * Class FFT
  */
-public class FFT implements FourierTransformation
+public class FFT
 {
-
-
     // compute the FFT of x[], assuming its length n is a power of 2
     public static Complex[] fft(Complex[] x)
     {
@@ -140,27 +138,4 @@ public class FFT implements FourierTransformation
         }
         return y;
     }
-        
-
-
-  //
-  // Accessor methods
-  //
-
-  //
-  // Other methods
-  //
-
-  /**
-   * @return       Complex
-   * @param        x
-   */
-  public Complex countTransformation(Complex x)
-  {
-      //TODO
-      Complex y = new Complex(2,3);
-      return  y;
-  }
-
-
 }
