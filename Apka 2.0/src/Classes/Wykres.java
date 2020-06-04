@@ -11,7 +11,6 @@ import org.jfree.chart.title.TextTitle;
 import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
-
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import java.awt.BasicStroke;
