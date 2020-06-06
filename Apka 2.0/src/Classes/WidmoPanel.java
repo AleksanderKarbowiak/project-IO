@@ -1,6 +1,7 @@
 package Classes;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -18,13 +19,12 @@ public class WidmoPanel extends JFrame{
     private JPanel text;
     public JPanel WidmoPanel;
     private JTextField textField1;
-    private JTextField textField2;
+    private JSpinner FrequencySpinner;
     private JTextField textField3;
-    private JLabel probki;
     private Baza_danych baza;
 
     private int iloscProbek;
-    private int czestotliwoscProbkowania;
+    private int czestotliwosc;
     private int amplituda;
 
     public WidmoPanel(String text, Baza_danych baza) {
@@ -33,13 +33,12 @@ public class WidmoPanel extends JFrame{
         for(Nagranie nagranie : baza.nagrania) {
             comboBox1.addItem(nagranie.nazwa);
         }
+        SpinnerModel model = new SpinnerNumberModel(20, 20, 8000, 1);
+        FrequencySpinner.setModel(model);
         okButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                iloscProbek = Integer.parseInt(textField1.getText());
-                amplituda = Integer.parseInt(textField2.getText());
-                czestotliwoscProbkowania = Integer.parseInt(textField3.getText());
-
+                czestotliwosc = (Integer) FrequencySpinner.getValue();
                 wyswietlWidmo();
             }
         });
@@ -48,52 +47,60 @@ public class WidmoPanel extends JFrame{
     public void wyswietlWidmo() {
         Ramka Okno;
         DTFT Transformata;
-        funkcje sygnał;
 
         double fs; //Parametry próbkowania
-        int N;
-
-        double A; //Parametry sygnału
-        double f;
-
         double f_max; //Parametry DTFT
         double f_min;
         double f_krok;
 
-        double[] próbki;
-        widmo[] wynik;
+        widmo[] wynik = new widmo[2048];
 
-        fs = czestotliwoscProbkowania;
-        N = iloscProbek;
-        A = amplituda;
-
-        f = 20;
-
-        f_max = fs/2;
-        f_min = -f_max;
-        f_krok = fs/2000;
-
-        Transformata = new DTFT(f_min, f_max, f_krok, fs);
-        sygnał = new funkcje(fs,N);
-        próbki = new double[N];
         String file = (String) comboBox1.getSelectedItem();
+        PlikWave plik = new PlikWave( file+".wav");
+        plik.OtwórzIstniejącyPlik();
 
-        try {
-            Path path = Paths.get(file+".wav");
-            byte[] data = Files.readAllBytes(path);
-            for (int i = 0; i < N; i++){
-                próbki[i] = ByteBuffer.wrap(data).getDouble();
+        fs = plik.getCzęstotliwośćPróbkowania();
+        f_max = fs/2;
+        f_min = czestotliwosc;
+        f_krok = fs/2048;
+        Transformata = new DTFT(f_min, f_max, f_krok, fs);
+
+        int ileProbek = 4096;
+        int indexProbki = 0;
+        double[] probkiSuma = new double[2048];
+
+        while (indexProbki + ileProbek < plik.getLiczbęPróbek())
+        {
+            byte[] probki = plik.PobierzKilkaPróbek(indexProbki, ileProbek);
+            indexProbki += ileProbek;
+
+            double[] probkiL = new double[ileProbek/2];
+            int licznikL = 0;
+            for (int i = 0; i < probkiL.length; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    probkiL[licznikL++] = probki[i];
+                }
             }
 
-            wynik = Transformata.ObliczDTFT(próbki);
-            Okno = new Ramka(600,600,"Wykres widma",10,10, wynik);
-            Okno.UstawMnieNaŚrodku();
+            for (int i = 0; i < probkiSuma.length; i++)
+            {
+                probkiSuma[i] += probkiL[i];
+            }
+        }
 
-            Okno.setVisible(true);
-        }
-        catch(Exception e) {
-            e.printStackTrace();
-        }
+        wynik = Transformata.ObliczDTFT(probkiSuma);
+
+        /*Okno = new Ramka(600,600,"Wykres widma",10,10, wynik);
+        Okno.UstawMnieNaŚrodku();
+        Okno.setVisible(true);
+        */
+        WykresWidma wykres = new WykresWidma(wynik, "Widmo");
+        wykres.setSize(800, 400);
+        wykres.setLocationRelativeTo(null);
+        wykres.setVisible(true);
+        //WyprowadźWidmo(wynik);
 
     }
 
