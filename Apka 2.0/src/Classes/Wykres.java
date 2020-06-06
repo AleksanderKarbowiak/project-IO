@@ -49,7 +49,7 @@ public class Wykres extends JFrame {
         double f = 0;
         for (int i =0; i< tab.length/2; i++)
         {
-            seria.add(f, tab[i]/(tab.length/2));
+            seria.add(f, tab[i]);
             f += krok;
         }
 
