@@ -56,7 +56,7 @@ public class WidmoPanel extends JFrame{
         widmo[] wynik = new widmo[2048];
 
         String file = (String) comboBox1.getSelectedItem();
-        PlikWave plik = new PlikWave( file+".wav");
+        PlikWave plik = new PlikWave( file + ".wav");
         plik.OtwórzIstniejącyPlik();
 
         fs = plik.getCzęstotliwośćPróbkowania();
