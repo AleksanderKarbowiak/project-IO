@@ -2,6 +2,7 @@ package Classes;
 
 import javax.swing.*;
 import java.awt.event.*;
+import java.awt.*;
 
 public class MainWindow extends JFrame {
     private JPanel mainWindow;
@@ -17,6 +18,9 @@ public class MainWindow extends JFrame {
     private JTextField nazwaNagraniaField;
     private JButton przebiegGlosnosciButton;
     private JButton bazaNagranButton;
+    private JLabel ledIndicator;
+    private JTextField wiekTextField;
+    private JComboBox plec;
     private Baza_danych bazaNagrań;
 
     private Nagrywarka nagrywarka;
@@ -29,7 +33,14 @@ public class MainWindow extends JFrame {
         bazaNagranButton.addActionListener(addNewForm);
         bazaNagrań = new Baza_danych();
         bazaNagrań.pobierzListe();
-        
+
+        String[] Pleci=new String[]{"Male", "Female","Agender","Androgyne","Androgynous","Bi gender","Cis",
+                "Cis gender","Cis Female","Cis Male","FTM","Gender Fluid","Gender Nonconforming","MTF","Neither","Non-binary","Pangender","Trans","Other"};
+        for (int i=0;i<Pleci.length;i++)
+        {
+            plec.addItem(Pleci[i]);
+        }
+        plec.setSelectedIndex(0);
         czestotliwoscF0Button.addActionListener(obliczF0Panel);
 
     }
@@ -45,7 +56,9 @@ public class MainWindow extends JFrame {
     ActionListener startListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            Nagranie nagranie = nagrywarka.Nagraj(nazwaNagraniaField.getText(), imieTextField.getText(),nazwiskoTextField.getText());
+            Nagranie nagranie = nagrywarka.Nagraj(nazwaNagraniaField.getText(), imieTextField.getText(),nazwiskoTextField.getText(),wiekTextField.getText(),(String) plec.getSelectedItem());
+            ledIndicator.setText("⚫ ");
+            ledIndicator.setForeground(Color.RED);
             System.out.println("Dodawanie nagrania");
             bazaNagrań.dodajNagranie(nagranie);
         }
@@ -75,6 +88,8 @@ public class MainWindow extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             nagrywarka.Stop();
+            ledIndicator.setText("⚪ ");
+            ledIndicator.setForeground(new Color(187, 187, 187));
             bazaNagrań.zapiszListe();
         }
     };
