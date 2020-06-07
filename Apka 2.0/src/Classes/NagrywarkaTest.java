@@ -21,7 +21,7 @@ public class NagrywarkaTest {
 
         try{
             nagrywarka.path = path;
-            nagrywarka.Nagraj(nazwa,"test","test") ;
+            nagrywarka.Nagraj(nazwa,"test","test","17","male");
             Thread.sleep(dlugoscRekordu * 1000);
             nagrywarka.Stop();
 
