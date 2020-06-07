@@ -30,6 +30,7 @@ public class MainWindow extends JFrame {
         nagrywarka = new Nagrywarka();
         startButton.addActionListener(startListener);
         stopButton.addActionListener(stopListener);
+        widmoButton.addActionListener(widmoListener);
         bazaNagranButton.addActionListener(addNewForm);
         bazaNagrań = new Baza_danych();
         bazaNagrań.pobierzListe();
@@ -63,7 +64,17 @@ public class MainWindow extends JFrame {
             bazaNagrań.dodajNagranie(nagranie);
         }
     };
-
+    
+    ActionListener widmoListener = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            JFrame frame = new JFrame("WidmoPanel");
+            frame.setContentPane(new WidmoPanel("Title2", bazaNagrań).WidmoPanel);
+            frame.pack();
+            frame.setVisible(true);
+        }
+    };
+    
     ActionListener addNewForm = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
