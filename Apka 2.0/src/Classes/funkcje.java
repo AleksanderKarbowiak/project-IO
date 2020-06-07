@@ -1,3 +1,4 @@
+package Classes;
 /**
  * Klasa służąca do generowania spróbkowanych typowych funkcji
  */
