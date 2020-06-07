@@ -20,8 +20,8 @@ public class Nagrywarka {
      * @return nagranie
      */
 
-    Nagranie Nagraj(String nazwa, String imie, String nazwisko) {
-        Nagranie nagranie = new Nagranie(nazwa, imie, nazwisko);
+    Nagranie Nagraj(String nazwa, String imie, String nazwisko, String wiek, String plec) {
+        Nagranie nagranie = new Nagranie(nazwa, imie, nazwisko, wiek, plec);
         wavFile = new File(path + nazwa + ".wav");
         Start();
         return nagranie;
