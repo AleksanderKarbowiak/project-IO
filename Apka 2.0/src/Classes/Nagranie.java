@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.*;
 
 /**
- * Klasa służąca do zapisywania danych użytkownika do pliku.
+ * Klasa służąca do odczytywania danych użytkownika z pliku i wyświetlania ich.
  *
  * @author Paweł Rogulski
  * @since 2019.03.21
