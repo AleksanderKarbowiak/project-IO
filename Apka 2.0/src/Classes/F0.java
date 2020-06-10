@@ -1,7 +1,7 @@
 package Classes;
 
 /**
- * Class F0
+ * Klasa z metodami obliczającymi częstotliwość podstawową
  */
 
 
