@@ -2,9 +2,6 @@ package Classes;
 
 /**
  * Class F0
- *
- * @author Paweł Rogulski
- * @since 2019.03.21
  */
 
 
