@@ -2,7 +2,12 @@ package Classes;
 
 /**
  * Class F0
+ *
+ * @author Paweł Rogulski
+ * @since 2019.03.21
  */
+
+
 public class F0 {
 
   /** Metoda obliczająca ile momentów (ile zestawów po 4096 próbki) jest w wybranym pliku */
@@ -124,10 +129,19 @@ public class F0 {
     double maxValue = 0;
     double krok = f/tab.length;
     boolean boo = false;
-
+    double średniaAmp = 0;
+    double suma = 0;
+    
+    // obliczanie średniej amplitudy
+    for (int i = 3; i < tab.length/2; i++) {
+      suma += tab[i];
+    }
+    średniaAmp = suma / (tab.length/2);
+    
+    
     for (int i = 3; i < tab.length/2 - 3; i++) {
 
-      if (tab[i-3] < tab[i] && tab[i-2] < tab[i] && tab[i-1] < tab[i] && // jeśli 3 poprzednie i 3 następne wartości są mniejsze od obecnej
+      if (tab[i] > średniaAmp && tab[i-3] < tab[i] && tab[i-2] < tab[i] && tab[i-1] < tab[i] && // jeśli 3 poprzednie i 3 następne wartości są mniejsze od obecnej
               tab[i+1] < tab[i] && tab[i+2] < tab[i] && tab[i+3] < tab[i]) {
 
         if (maxIndex == 0) {
