@@ -1,8 +1,8 @@
+package Classes;
+
 /**
  * Klasa służąca do generowania spróbkowanych typowych funkcji
  */
-
-package Classes;
 
 public class funkcje
 {
