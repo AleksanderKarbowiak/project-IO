@@ -4,10 +4,7 @@ import java.io.*;
 import java.util.*;
 
 /**
- * Klasa służąca do odczytywania danych użytkownika z pliku i wyświetlania ich.
- *
- * @author Paweł Rogulski
- * @since 2019.03.21
+ * Klasa służąca do odczytywania danych użytkownika z pliku i wyświetlania ich
  */
 
 public class Nagranie implements Serializable {
