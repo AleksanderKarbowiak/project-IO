@@ -3,6 +3,13 @@ package Classes;
 import java.io.*;
 import java.util.*;
 
+/**
+ * Klasa służąca do zapisywania danych użytkownika do pliku.
+ *
+ * @author Paweł Rogulski
+ * @since 2019.03.21
+ */
+
 public class Nagranie implements Serializable {
 
     String nazwa;
