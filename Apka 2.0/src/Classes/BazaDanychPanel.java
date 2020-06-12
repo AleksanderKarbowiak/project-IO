@@ -11,6 +11,11 @@ public class BazaDanychPanel extends JFrame {
     private JTable databaseTable;
     private JList list1;
 
+    /**
+     * Konstruktor panelu bazy danych
+     * @param title
+     * @param database
+     */
     public BazaDanychPanel(String title, Baza_danych database) {
         super(title);
         DefaultTableModel model = new DefaultTableModel();
