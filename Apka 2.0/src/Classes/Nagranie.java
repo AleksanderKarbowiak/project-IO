@@ -1,8 +1,3 @@
-package Classes;
-
-import java.io.*;
-import java.util.*;
-
 /**
  * Klasa służąca do odczytywania danych użytkownika z pliku i wyświetlania ich
  */
@@ -26,19 +21,30 @@ public class Nagranie implements Serializable {
         this.imie = imie;
         this.nazwisko = nazwisko;
     }
+    /**
+    * metoda zwracająca imie użytkownika
+     */
     public String getImie(){
         return imie;
     }
 
+    /**
+     * metoda zwracająca nazwisko użytkownika
+     */
     public String getNazwisko(){
         return nazwisko;
     }
 
+    /**
+     * metoda zwracająca nazwe nagrania
+     */
     public String getNazwa(){
         return nazwa;
     }
 
-    //metoda do wypisywania zawartości obiektu
+    /**
+    *metoda do wypisywania zawartości obiektu
+     */
     public void getNagranieData(){
         System.out.print(getImie() + " " + getNazwisko()+ " " + getNazwa() +'\n');
     }
