@@ -3,13 +3,12 @@ package Classes;
 import java.awt.*;
 import javax.swing.*;
 
-
+/**
+ * Klasa zawierająca metody do rysowania
+ */
 public class Rysowanie
 {
-    /**
-     *Klasa zawierająca metody do rysowania
-     * @param argh
-     */
+
     public static void  main(String[] argh)
     {
         Ramka Okno;
