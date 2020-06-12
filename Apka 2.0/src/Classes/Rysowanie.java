@@ -160,12 +160,11 @@ class Ramka extends JFrame
  * zotanie on zamazany czym innym, na przykład innym oknem.
  */
 
-
+/**
+ * Klasa zawierająca metody tworzące panel okna
+ */
 class PanelOkna extends JPanel
 {
-    /**
-     * Klasa zawierająca metody tworzące panel okna
-     */
     private final int IlePodziałekX;
     private final int IlePodziałekY;
     private final widmo[] WidmoDoRysowania;
