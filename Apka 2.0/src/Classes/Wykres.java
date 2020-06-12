@@ -19,11 +19,21 @@ import java.awt.Font;
 
 public class Wykres extends JFrame {
 
+    /**
+     * Klasa zawiera metody które tworzą wykres dla f0
+     * @param tab tablica wartości amplitudy
+     * @param title tytuł wykresu
+     */
     public Wykres(double[] tab, String title) {
 
         initUI(tab, title);
     }
 
+    /**
+     * Metoda tworząca wykres
+     * @param tab
+     * @param title
+     */
     private void initUI(double[] tab, String title) {
 
         XYDataset dataset = createDataset(tab);
@@ -39,7 +49,11 @@ public class Wykres extends JFrame {
         setLocationRelativeTo(null);
         //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-
+    /**
+     * metoda przygotowująca dane do utworzenia wykresu
+     * @param tab
+     * @return
+     */
     private XYDataset createDataset(double[] tab) {
 
         var seria = new XYSeries("Widmo");
@@ -59,7 +73,11 @@ public class Wykres extends JFrame {
 
         return dataset;
     }
-
+     /**
+     * metoda pomocnicza do tworzenia wykresu
+     * @param dataset
+     * @return
+     */
     private JFreeChart createChart(XYDataset dataset) {
 
         JFreeChart chart = ChartFactory.createXYLineChart(
