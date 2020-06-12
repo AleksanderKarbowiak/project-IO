@@ -3,22 +3,26 @@ import java.util.*;
 
 
 /**
- * Class DTFT
+ * Klasa odpowiedzialna za obsługę dyskretnej transformaty Fouriera
  */
 public class DTFT {
 
-  //
-  // Fields
-  //
+    /**
+     * Pola potrzebne do wykonania obliczeń
+     */
     private final double CzęstotliwośćPoczątkowa;
     private final double CzęstotliwośćKońcowa;
     private final double KrokCzęstotliwości;
     private final int LiczbaPróbek;
     private final double CzęstotliwośćPróbkowania;
-  
-  //
-  // Constructors
-  //
+
+    /**
+     * Konstruktor przyjmujcy potrzebne do utworzenia obiektu transformaty
+     * @param początek - częstotliwość poczatkowa
+     * @param koniec - częstotliwość końcowa
+     * @param krok - krok częśtotliwościowy ustawiony dla obliczeń
+     * @param fs - częśtotlwiość próbkowania
+     */
   public DTFT(double początek, double koniec, double krok, double fs)
     {
         CzęstotliwośćPoczątkowa = początek;
@@ -29,8 +33,12 @@ public class DTFT {
         
         CzęstotliwośćPróbkowania = fs;
         
-    }//Koniec konstruktora
+    }
 
+    /**
+     * Metoda obliczajca pulsację
+     * @param f - cześtotliwość dla które liczymy pulsację
+     */
  private double pulsacja(double f)
     {
         double wynik;
@@ -40,6 +48,13 @@ public class DTFT {
         return wynik;
     }//Koniec obliczania pulsacji
 
+
+    /**
+     * Metoda zwracajaca próbkę widma
+     * @param f - częstotliwość
+     * @param próbki - próbki naszego nagrania
+     * @return - wynikiem metody jest liczba urojona przechowywana za pomoca klasy Complex
+     */
  private Complex ObliczPróbkęWidma(double f, double[] próbki)
     {
         int i;
@@ -59,7 +74,7 @@ public class DTFT {
             
             a += próbki[i] * Math.cos(ułamek);
             b -= próbki[i] * Math.sin(ułamek);
-        }//next i
+        }
         
         a = a/(double)próbki.length;
         b = b/(double)próbki.length;
@@ -68,8 +83,13 @@ public class DTFT {
         
         return wynik;
         
-    }//Koniec obliczania pojedynczej próbki widma
-    
+    }
+
+    /**
+     * Metoda używana do obliczania DTFT, korzystaja z metody @ObliczProbkeWidma do zapełniania tablicy widmo[]
+     * @param próbki - próbki nagrania
+     * @return - tablica widmo z wynikiem DTFT
+     */
     
     public widmo[] ObliczDTFT(double[] próbki)
     {
@@ -95,9 +115,6 @@ public class DTFT {
             
         }//next i
         
-        return tablica;
-        
-    }//Koniec obliczania widma
-
-
+        return tablica;      
+    }
 }
