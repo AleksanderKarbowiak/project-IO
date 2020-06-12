@@ -7,14 +7,22 @@ package Classes;
 
 public class F0 {
 
-  /** Metoda obliczająca ile momentów (ile zestawów po 4096 próbki) jest w wybranym pliku */
+  /**
+   * Metoda obliczająca ile momentów (ile zestawów po 4096 próbki) jest w wybranym pliku
+   * @param nazwaPliku
+   * @return ile - liczba momentów w wybranym pliku
+   */
   public static int IleMomentów(String nazwaPliku) {
     PlikWave plik = new PlikWave(nazwaPliku);
     plik.OtwórzIstniejącyPlik();
     int ile = (int)(plik.getLiczbęPróbek()/4096);
     return ile;
   }
-  /** Metoda oblicza F0 z uśrednionego widma otrzymanego z FFT */
+  /**
+   * Metoda oblicza F0 z uśrednionego widma otrzymanego z FFT
+   * @param nazwaPliku
+   * @return średnieF0 - średnia wartość częstotliwości podstawowej
+   */
   public static double ObliczŚrednieF0(String nazwaPliku) {
 
     PlikWave plik = new PlikWave(nazwaPliku);
@@ -78,7 +86,12 @@ public class F0 {
     return średnieF0;
   }
 
-  /** Metoda oblicza F0 i wyświetla wykres wybranego momentu nagrania */
+  /**
+   * Metoda oblicza F0 i wyświetla wykres wybranego momentu nagrania
+   * @param nazwaPliku
+   * @param moment - wybrany moment dla którego ma zostać obliczone F0
+   * @return F0 - wartość częstotliwości podstawowej w wybranym momencie
+   */
   public static double ObliczF0wJednymMomencie(String nazwaPliku, int moment) {
     PlikWave plik = new PlikWave(nazwaPliku);
     plik.OtwórzIstniejącyPlik();
