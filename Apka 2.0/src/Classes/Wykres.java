@@ -19,24 +19,14 @@ import java.awt.Font;
 
 public class Wykres extends JFrame {
 
-    /**
-     * Klasa zawiera metody które tworzą wykres dla f0
-     * @param tab tablica wartości amplitudy
-     * @param title tytuł wykresu
-     */
-    public Wykres(double[] tab, String title) {
+    public Wykres(double[] tab, String title, long fsamp) {
 
-        initUI(tab, title);
+        initUI(tab, title, fsamp);
     }
 
-    /**
-     * Metoda tworząca wykres
-     * @param tab
-     * @param title
-     */
-    private void initUI(double[] tab, String title) {
+    private void initUI(double[] tab, String title, long fsamp) {
 
-        XYDataset dataset = createDataset(tab);
+        XYDataset dataset = createDataset(tab, fsamp);
         JFreeChart chart = createChart(dataset);
 
         ChartPanel chartPanel = new ChartPanel(chart);
@@ -49,19 +39,14 @@ public class Wykres extends JFrame {
         setLocationRelativeTo(null);
         //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    /**
-     * metoda przygotowująca dane do utworzenia wykresu
-     * @param tab
-     * @return
-     */
-    private XYDataset createDataset(double[] tab) {
+
+    private XYDataset createDataset(double[] tab, long fsamp) {
 
         var seria = new XYSeries("Widmo");
 
-        double fs = 16000;
-        double krok = fs/tab.length;
+        double krok = (double)fsamp/tab.length;
         double f = 0;
-        for (int i =0; i< tab.length/2; i++)
+        for (int i = 0; i< tab.length/2; i++)
         {
             seria.add(f, tab[i]);
             f += krok;
@@ -73,11 +58,7 @@ public class Wykres extends JFrame {
 
         return dataset;
     }
-     /**
-     * metoda pomocnicza do tworzenia wykresu
-     * @param dataset
-     * @return
-     */
+
     private JFreeChart createChart(XYDataset dataset) {
 
         JFreeChart chart = ChartFactory.createXYLineChart(
@@ -115,5 +96,4 @@ public class Wykres extends JFrame {
 
         return chart;
     }
-
 }
