@@ -1,14 +1,14 @@
 package Classes;
 
 /**
- * Class F0
+ * Klasa z metodami obliczającymi częstotliwość podstawową
  */
 public class F0 {
 
   /**
    * Metoda obliczająca ile momentów (ile zestawów po 4096 próbki) jest w wybranym pliku
    * @param nazwaPliku
-   * @return
+   * @return ile - liczba momentów w wybranym pliku
    */
   public static int IleMomentów(String nazwaPliku) {
     PlikWave plik = new PlikWave(nazwaPliku);
@@ -20,7 +20,7 @@ public class F0 {
   /**
    * Metoda oblicza F0 z uśrednionego widma otrzymanego z FFT
    * @param nazwaPliku
-   * @return f0
+   * @return średnieF0 - średnia wartość częstotliwości podstawowej
    */
   public static double ObliczŚrednieF0(String nazwaPliku) {
 
@@ -89,8 +89,8 @@ public class F0 {
   /**
    * Metoda oblicza F0 i wyświetla wykres wybranego momentu nagrania
    * @param nazwaPliku
-   * @param moment
-   * @return f0
+   * @param moment - wybrany moment dla którego ma zostać obliczone F0
+   * @return F0 - wartość częstotliwości podstawowej w wybranym momencie
    */
   public static double ObliczF0wJednymMomencie(String nazwaPliku, int moment) {
     PlikWave plik = new PlikWave(nazwaPliku);
@@ -136,8 +136,8 @@ public class F0 {
   /**
    * Metoda wyszukuje częstotliwość podstawową (F0) z podanego widma FFT
    * @param tab
-   * @param f częśtotliwość próbkowania
-   * @return f0
+   * @param  f
+   * @return maxIndex - największa wartość
    */
   private static double SzukajF0(double[] tab, double f)
   {
