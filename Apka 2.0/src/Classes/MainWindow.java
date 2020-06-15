@@ -66,6 +66,15 @@ public class MainWindow extends JFrame {
         plec.setSelectedIndex(0);
         czestotliwoscF0Button.addActionListener(obliczF0Panel);
 
+        widmoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame("WidmoPanel");
+                frame.setContentPane(new WidmoPanel("Title2", bazaNagrań).WidmoPanel);
+                frame.pack();
+                frame.setVisible(true);
+            }
+        });
     }
 
     /**
@@ -129,6 +138,7 @@ public class MainWindow extends JFrame {
             frame.pack();
             frame.setVisible(true);
         }
+
     };
     
     ActionListener obliczF0Panel = new ActionListener() {

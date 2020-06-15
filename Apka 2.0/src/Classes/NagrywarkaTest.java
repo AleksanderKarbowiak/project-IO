@@ -1,5 +1,12 @@
 package Classes;
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+import org.junit.Test;
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
+=======
+>>>>>>> master
 import java.io.File;
 
 
@@ -16,12 +23,24 @@ public class NagrywarkaTest {
     int dlugoscRekordu = 4;
 
 
+<<<<<<< HEAD
+<<<<<<< HEAD
     @org.junit.Test
+=======
+    @Test
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
+=======
+    @org.junit.Test
+>>>>>>> master
     public void testNagrania() {
 
         try{
             nagrywarka.path = path;
+<<<<<<< HEAD
+            nagrywarka.Nagraj(nazwa,"test","test") ;
+=======
             nagrywarka.Nagraj(nazwa,"test","test","17","male");
+>>>>>>> master
             Thread.sleep(dlugoscRekordu * 1000);
             nagrywarka.Stop();
 
@@ -56,4 +75,8 @@ public class NagrywarkaTest {
             System.out.println("Plik nie istnieje");
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> master

@@ -11,11 +11,25 @@ import java.nio.ByteOrder;
 /**
  * Klasa służąca do zamiany Small Endian na BigEndian i odwrotnie.
  * Klasa zawiera tylko metody statyczne!
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> master
  *
  * @author Piotr Wrzeciono
  * @since 2016.02.17
  */
 public class LittleBigEndian
+<<<<<<< HEAD
+=======
+ * 
+ * @author Piotr Wrzeciono
+ * @since 2016.02.17
+ */
+public class LittleBigEndian 
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
+=======
+>>>>>>> master
 {
     /**
      * Metoda zamieniająca signed int na tablicę bajtów w uporządkowaniu Little Endian.
@@ -27,20 +41,48 @@ public class LittleBigEndian
         byte[] wynik;
         int[] tablica_pom;
         int i;
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> master
 
         wynik = new byte[4];
         tablica_pom = new int[4];
 
+<<<<<<< HEAD
+=======
+        
+        wynik = new byte[4];
+        tablica_pom = new int[4];
+        
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
+=======
+>>>>>>> master
         tablica_pom[0] = x & 0x000000ff; //Najmniej znaczący bajt
         tablica_pom[1] = (x & 0x0000ff00) >> 8;
         tablica_pom[2] = (x & 0x00ff0000) >> 16;
         tablica_pom[3] = (x & 0xff000000) >> 24; //Najbardziej znaczący bajt
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> master
 
         for(i = 0; i < 4; i++) wynik[i] = (byte)tablica_pom[i];
 
         return wynik;
     }//Koniec metody zamieniającej Int na tablicę small endian
 
+<<<<<<< HEAD
+=======
+        
+        for(i = 0; i < 4; i++) wynik[i] = (byte)tablica_pom[i];
+        
+        return wynik;
+    }//Koniec metody zamieniającej Int na tablicę small endian
+    
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
+=======
+>>>>>>> master
     /**
      * Metoda zamieniająca unsigned int (w reprezentacji long) na tablicę bajtów w konwencji Little Endian.
      * @param x Liczba do konwersji
@@ -51,20 +93,48 @@ public class LittleBigEndian
         byte[] wynik;
         int[] tablica_pom;
         int i;
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> master
 
         wynik = new byte[4];
         tablica_pom = new int[4];
 
+<<<<<<< HEAD
+=======
+        
+        wynik = new byte[4];
+        tablica_pom = new int[4];
+        
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
+=======
+>>>>>>> master
         tablica_pom[0] = (int)(x & 0x000000ff); //Najmniej znaczący bajt
         tablica_pom[1] = (int)((x & 0x0000ff00) >> 8);
         tablica_pom[2] = (int)((x & 0x00ff0000) >> 16);
         tablica_pom[3] = (int)((x & 0xff000000) >> 24); //Najbardziej znaczący bajt
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> master
 
         for(i = 0; i < 4; i++) wynik[i] = (byte)tablica_pom[i];
 
         return wynik;
     }//Koniec metody zamieniającej Unsigned Int na tablicę small endian
 
+<<<<<<< HEAD
+=======
+        
+        for(i = 0; i < 4; i++) wynik[i] = (byte)tablica_pom[i];
+        
+        return wynik;
+    }//Koniec metody zamieniającej Unsigned Int na tablicę small endian
+    
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
+=======
+>>>>>>> master
     /**
      * Metoda konwertująca signed short na tablicę w konwencji LittleEndian.
      * @param x Liczba do konwersji
@@ -75,6 +145,10 @@ public class LittleBigEndian
         byte[] wynik;
         short[] tablica_pom;
         int i;
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> master
 
         wynik = new byte[2];
         tablica_pom = new short[2];
@@ -88,6 +162,24 @@ public class LittleBigEndian
         return wynik;
     }//Koniec metody zamieniającej short na tablicę small endian
 
+<<<<<<< HEAD
+=======
+        
+        wynik = new byte[2];
+        tablica_pom = new short[2];
+        
+        tablica_pom[0] = (short)(x & 0x00ff); //Najmniej znaczący bajt
+        tablica_pom[1] = (short)((x & 0xff00) >> 8);
+        
+        
+        for(i = 0; i < 2; i++) wynik[i] = (byte)tablica_pom[i];
+        
+        return wynik;
+    }//Koniec metody zamieniającej short na tablicę small endian
+    
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
+=======
+>>>>>>> master
     /**
      * Metoda konwertująca unsigned short (w reprezentacji int) do tablicy w konwencji Little Endian
      * @param x Liczba do konwersji
@@ -98,6 +190,10 @@ public class LittleBigEndian
         byte[] wynik;
         int[] tablica_pom;
         int i;
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> master
 
         wynik = new byte[2];
         tablica_pom = new int[2];
@@ -111,6 +207,24 @@ public class LittleBigEndian
         return wynik;
     }//Koniec metody zamieniającej short na tablicę small endian
 
+<<<<<<< HEAD
+=======
+        
+        wynik = new byte[2];
+        tablica_pom = new int[2];
+        
+        tablica_pom[0] =  x & 0x000000ff; //Najmniej znaczący bajt
+        tablica_pom[1] = (x & 0x0000ff00) >> 8;
+        
+        
+        for(i = 0; i < 2; i++) wynik[i] = (byte)tablica_pom[i];
+        
+        return wynik;
+    }//Koniec metody zamieniającej short na tablicę small endian
+    
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
+=======
+>>>>>>> master
     /**
      * Metoda konwertująca tablicę bajtów (2 elementy) na unsigned short (w reprezentacji int).
      * @param UnsignedShort Tablica w konwencji Little Endian
@@ -120,19 +234,46 @@ public class LittleBigEndian
     {
         byte[] TablicaPomocnicza;
         int wynik;
+<<<<<<< HEAD
+<<<<<<< HEAD
 
         TablicaPomocnicza = new byte[4];
 
+=======
+        
+        TablicaPomocnicza = new byte[4];
+        
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
+=======
+
+        TablicaPomocnicza = new byte[4];
+
+>>>>>>> master
         TablicaPomocnicza[3] = 0;
         TablicaPomocnicza[2] = 0;
         TablicaPomocnicza[1] = UnsignedShort[1];
         TablicaPomocnicza[0] = UnsignedShort[0];
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> master
 
         wynik = ByteBuffer.wrap(TablicaPomocnicza).order(ByteOrder.LITTLE_ENDIAN).getInt();
 
         return wynik;
     }//Koniec metody
 
+<<<<<<< HEAD
+=======
+        
+        wynik = ByteBuffer.wrap(TablicaPomocnicza).order(ByteOrder.LITTLE_ENDIAN).getInt();
+        
+        return wynik;
+    }//Koniec metody
+    
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
+=======
+>>>>>>> master
     /**
      * Metoda konwertująca tablicę bajtów (4 bajty) na unsigned int (w reprezentacji long).
      * @param UnsignedInt Tablica bajtów w konwencji Little Endian
@@ -142,9 +283,21 @@ public class LittleBigEndian
     {
         byte[] TablicaPomocnicza;
         int wynik;
+<<<<<<< HEAD
+<<<<<<< HEAD
 
         TablicaPomocnicza = new byte[8];
 
+=======
+        
+        TablicaPomocnicza = new byte[8];
+        
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
+=======
+
+        TablicaPomocnicza = new byte[8];
+
+>>>>>>> master
         TablicaPomocnicza[7] = 0;
         TablicaPomocnicza[6] = 0;
         TablicaPomocnicza[5] = 0;
@@ -153,12 +306,27 @@ public class LittleBigEndian
         TablicaPomocnicza[2] = UnsignedInt[2];
         TablicaPomocnicza[1] = UnsignedInt[1];
         TablicaPomocnicza[0] = UnsignedInt[0];
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> master
 
         wynik = ByteBuffer.wrap(TablicaPomocnicza).order(ByteOrder.LITTLE_ENDIAN).getInt();
 
         return wynik;
     }//Koniec metody
 
+<<<<<<< HEAD
+=======
+        
+        wynik = ByteBuffer.wrap(TablicaPomocnicza).order(ByteOrder.LITTLE_ENDIAN).getInt();
+        
+        return wynik;
+    }//Koniec metody
+    
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
+=======
+>>>>>>> master
     /**
      * Metoda konwertująca tablicę bajtów (2 elementy) na signed short.
      * @param SignedShort Tablica bajtów w konwencji Little Endian.
@@ -167,12 +335,27 @@ public class LittleBigEndian
     public static short UtwórzSignedShortZLittleEndian(byte[] SignedShort)
     {
         short wynik;
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> master
 
         wynik = ByteBuffer.wrap(SignedShort).order(ByteOrder.LITTLE_ENDIAN).getShort();
 
         return wynik;
     }//Koniec metody
 
+<<<<<<< HEAD
+=======
+        
+        wynik = ByteBuffer.wrap(SignedShort).order(ByteOrder.LITTLE_ENDIAN).getShort();
+        
+        return wynik;
+    }//Koniec metody
+    
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
+=======
+>>>>>>> master
     /**
      * Metoda konwertująca tablicę bajtów (4 elementy) na signed int.
      * @param SignedInt Tablica bajtów w konwencji Little Endian.
@@ -181,35 +364,87 @@ public class LittleBigEndian
     public static int UtwórzSignedIntZLittleEndian(byte[] SignedInt)
     {
         int wynik;
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> master
 
         wynik = ByteBuffer.wrap(SignedInt).order(ByteOrder.LITTLE_ENDIAN).getInt();
 
         return wynik;
     }//Koniec metody
 
+<<<<<<< HEAD
+=======
+        
+        wynik = ByteBuffer.wrap(SignedInt).order(ByteOrder.LITTLE_ENDIAN).getInt();
+        
+        return wynik;
+    }//Koniec metody
+    
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
+=======
+>>>>>>> master
     public static int UtwórzSignedInt24bitZLittleEndian(byte[] bit24)
     {
         byte[] pomoc;
         int wynik;
+<<<<<<< HEAD
+<<<<<<< HEAD
 
         pomoc = new byte[4];
 
+=======
+        
+        pomoc = new byte[4];
+        
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
+=======
+
+        pomoc = new byte[4];
+
+>>>>>>> master
         pomoc[3] = 0;
         pomoc[2] = bit24[2];
         pomoc[1] = bit24[1];
         pomoc[0] = bit24[0];
+<<<<<<< HEAD
+<<<<<<< HEAD
 
         wynik = UtwórzSignedIntZLittleEndian(pomoc);
 
+=======
+        
+        wynik = UtwórzSignedIntZLittleEndian(pomoc);
+        
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
+=======
+
+        wynik = UtwórzSignedIntZLittleEndian(pomoc);
+
+>>>>>>> master
         if(wynik > 0x007fffff) //Uwaga! - liczba ujemna!
         {
             wynik = (~wynik) & 0x00ffffff ;
             wynik = -(wynik + 1);
         }//end if
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> master
 
         return wynik;
     }//Koniec tworzenia signed int z 24.
 
+<<<<<<< HEAD
+=======
+        
+        return wynik;
+    }//Koniec tworzenia signed int z 24.
+    
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
+=======
+>>>>>>> master
     public static void main(String[] arg)
     {
         long x = 352800;
@@ -221,29 +456,71 @@ public class LittleBigEndian
         long res3;
         short res4;
         int res5;
+<<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
+=======
+
+>>>>>>> master
         byte[] test = LittleBigEndian.ZamieńUnsignedIntNaTablicęLittleEndian(x);
         byte[] test1 = LittleBigEndian.ZamieńShortNaTablicęLittleEndian(y);
         byte[] test2 = LittleBigEndian.ZamieńUnsignedShortNaTablicęLittleEndian((int)x);
         byte[] test3 = LittleBigEndian.ZamieńShortNaTablicęLittleEndian(z);
         byte[] test4 = LittleBigEndian.ZamieńSignedIntNaTablicęLittleEndian(a);
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> master
 
         for(int i=0;i < test.length; i++) System.out.println("test[" + i + "] = 0x" + Integer.toHexString(test[i] & 0x000000ff));
         for(int i=0;i < test1.length; i++) System.out.println("test1[" + i + "] = 0x" + Integer.toHexString(test1[i] & 0x000000ff));
         for(int i=0;i < test1.length; i++) System.out.println("test2[" + i + "] = 0x" + Integer.toHexString(test2[i] & 0x000000ff));
 
+<<<<<<< HEAD
+=======
+        
+        for(int i=0;i < test.length; i++) System.out.println("test[" + i + "] = 0x" + Integer.toHexString(test[i] & 0x000000ff));
+        for(int i=0;i < test1.length; i++) System.out.println("test1[" + i + "] = 0x" + Integer.toHexString(test1[i] & 0x000000ff));
+        for(int i=0;i < test1.length; i++) System.out.println("test2[" + i + "] = 0x" + Integer.toHexString(test2[i] & 0x000000ff));
+        
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
+=======
+>>>>>>> master
         res1 = LittleBigEndian.UtwórzUnsignedShortZLittleEndian(test1);
         res2 = LittleBigEndian.UtwórzUnsignedShortZLittleEndian(test2);
         //res3 = LittleBigEndian.UtwórzSinedShortZLittleEndian(test2);
         res4 = LittleBigEndian.UtwórzSignedShortZLittleEndian(test3);
         res5 = LittleBigEndian.UtwórzSignedIntZLittleEndian(test4);
+<<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
+=======
+
+>>>>>>> master
         System.out.println("res1 = " + res1);
         System.out.println("res2 = " + res2);
         //System.out.println("res3 = " + res3);
         System.out.println("res4 = " + res4);
         System.out.println("res5 = " + res5);
+<<<<<<< HEAD
+<<<<<<< HEAD
 
     }//Koniec testowej metodu main
 
+=======
+        
+    }//Koniec testowej metodu main
+    
+>>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
+=======
+
+    }//Koniec testowej metodu main
+
+>>>>>>> master
 }//Koniec klasy
