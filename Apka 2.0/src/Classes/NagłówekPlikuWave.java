@@ -3,10 +3,6 @@ package Classes;
 
 /**
  * Klasa służąca do obsługiwania nagłówka pliku wave.
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
  *
  * Klasa ta jest tworzona zarówno z danych strumienia, jak i z bajtów odczytanych z pliku.
  *
@@ -17,21 +13,6 @@ public class NagłówekPlikuWave
 {
     /**************Stałe kodujące rodzaj danych w pliku wave********************************/
 
-<<<<<<< HEAD
-=======
- * 
- * Klasa ta jest tworzona zarówno z danych strumienia, jak i z bajtów odczytanych z pliku.
- * 
- * @author Piotr Wrzeciono
- * @since 2016.02.17
- */
-public class NagłówekPlikuWave 
-{
-    /**************Stałe kodujące rodzaj danych w pliku wave********************************/
-    
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
->>>>>>> master
     /**Nazwa i wartość stałej przynależą do standardu WAVE. */
     public final static int UNKNOWN = 0x0000;
     /**Nazwa i wartość stałej przynależą do standardu WAVE. */
@@ -72,25 +53,11 @@ public class NagłówekPlikuWave
     public final static int IBM_A_LAW = 0x0102;
     /**Nazwa i wartość stałej przynależą do standardu WAVE. */
     public final static int IBM_ADPCM = 0x0103;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
 
     /***************************************************************************************/
 
     /**************Stałe służące do komunikowania kontroli poprawności nagłówka*************/
 
-<<<<<<< HEAD
-=======
-    
-    /***************************************************************************************/
-    
-    /**************Stałe służące do komunikowania kontroli poprawności nagłówka*************/
-    
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
->>>>>>> master
     /**Wszystkie dane w nagłówku (które można sprawdzić) są prawidłowe. */
     public static final int WSZYSTKO_PRAWIDŁOWE = 0;
     /**Początek pliku ('RIFF') jest we właściwym miejscu. */
@@ -121,23 +88,10 @@ public class NagłówekPlikuWave
     public static final int data_PRAWIDŁOWA = 13;
     /**'data' nie znajduje się na właściwym miejscu. */
     public static final int data_NIEPRAWIDŁOWA = 14;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
 
     /***************************************************************************************/
 
 
-<<<<<<< HEAD
-=======
-    
-    /***************************************************************************************/
-    
-    
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
->>>>>>> master
     /**Pierwszy element nagłówka - 2 bajty, zawierają tekst 'RIFF'. */
     private byte[] ID_1;
     /**Drugi element nagłówka - 4 bajty, rozmiar danych z pominięciem pierwszych 8 bajtów nagłówka - typ unsigned int small endian. Po dopisie danych wymaga modyfikacji.*/
@@ -164,23 +118,10 @@ public class NagłówekPlikuWave
     private byte[] DodatkoweParametry_12;
     /**Trzynasty element nagłówka Tekst 'data' kończący pole nagłówka. */
     private byte[] DaneID_13;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
     /**Czternasty element nagłówka 4 bajty (int) unsigned, small endian - Rozmiar danych = Rozmiar pliku - rozmiar nagłówka (włącznie z 'data') - 4 (na rozmiar tego pola).
      * <br>Uwaga! Rozmiar danych może być mniejszy od normalnego przypadku. Na przykład znaczniki zapisywane są po wszystkich danych muzycznych. Wtedy rozmiar danych jest mnieszy od przykładu podanego powyżej. */
     private byte[] RozmiarBlokuDanych_14;
 
-<<<<<<< HEAD
-=======
-    /**Czternasty element nagłówka 4 bajty (int) unsigned, small endian - Rozmiar danych = Rozmiar pliku - rozmiar nagłówka (włącznie z 'data') - 4 (na rozmiar tego pola). 
-     * <br>Uwaga! Rozmiar danych może być mniejszy od normalnego przypadku. Na przykład znaczniki zapisywane są po wszystkich danych muzycznych. Wtedy rozmiar danych jest mnieszy od przykładu podanego powyżej. */ 
-    private byte[] RozmiarBlokuDanych_14;
-    
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
->>>>>>> master
     /**
      * Metoda zamieniająca String na tablicę bajtów.
      * @param Tekst Tekst do zamiany
@@ -192,10 +133,6 @@ public class NagłówekPlikuWave
         int i;
         int znak;
         char[] ZnakiZTekstu;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
 
         ZnakiZTekstu = Tekst.toCharArray();
 
@@ -211,26 +148,6 @@ public class NagłówekPlikuWave
         return bajty_ascii;
     }//Koniec metody zamieniającej String na bajty
 
-<<<<<<< HEAD
-=======
-        
-        ZnakiZTekstu = Tekst.toCharArray();
-        
-        bajty_ascii = new byte[ZnakiZTekstu.length];
-        
-        for(i = 0; i < bajty_ascii.length; i++)
-        {
-            znak = (int)ZnakiZTekstu[i];
-            
-            if(znak < 127) bajty_ascii[i] = (byte)znak; else bajty_ascii[i]=32; //Albo tekst, albo spacje!
-        }//next i
-        
-        return bajty_ascii;
-    }//Koniec metody zamieniającej String na bajty
-    
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
->>>>>>> master
     /**
      * Metoda tworząca nagłówek bajtowy (gotowy do zapisu w pliku wave).
      * @return Nagłówek pliku wave w postaci tablicy bajtów.
@@ -241,38 +158,17 @@ public class NagłówekPlikuWave
         int ile_bajtów;
         int licznik_bitów;
         int i;
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
-
->>>>>>> master
         ile_bajtów  = this.ID_1.length + this.RozmiarDanych_2.length + this.FormatID_3.length + this.OpisID_4.length;
         ile_bajtów += this.RozmiarOpisu_5.length + this.FormatAudio_6.length + this.LiczbaKanałów_7.length;
         ile_bajtów += this.CzęstotliwośćPróbkowania_8.length + this.CzęstotliwośćBajtów_9.length;
         ile_bajtów += this.RozmiarPróbki_10.length + this.LiczbaBitówWPróbce_11.length;
         if(this.DodatkoweParametry_12 != null) ile_bajtów += this.DodatkoweParametry_12.length;
         ile_bajtów += this.DaneID_13.length + this.RozmiarBlokuDanych_14.length;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
 
         dane_nagłówka = new byte[ile_bajtów];
         licznik_bitów = 0;
 
-<<<<<<< HEAD
-=======
-        
-        dane_nagłówka = new byte[ile_bajtów];
-        licznik_bitów = 0;
-        
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
->>>>>>> master
         for(i = 0; i < this.ID_1.length; i++){dane_nagłówka[licznik_bitów] = this.ID_1[i]; licznik_bitów++;}
         for(i = 0; i < this.RozmiarDanych_2.length; i++){dane_nagłówka[licznik_bitów] = this.RozmiarDanych_2[i]; licznik_bitów++;}
         for(i = 0; i < this.FormatID_3.length; i++){dane_nagłówka[licznik_bitów] = this.FormatID_3[i]; licznik_bitów++;}
@@ -287,23 +183,10 @@ public class NagłówekPlikuWave
         if(this.DodatkoweParametry_12 != null) for(i = 0; i < this.DodatkoweParametry_12.length; i++){dane_nagłówka[licznik_bitów] = this.DodatkoweParametry_12[i]; licznik_bitów++;}
         for(i = 0; i < this.DaneID_13.length; i++){dane_nagłówka[licznik_bitów] = this.DaneID_13[i]; licznik_bitów++;}
         for(i = 0; i < this.RozmiarBlokuDanych_14.length; i++){dane_nagłówka[licznik_bitów] = this.RozmiarBlokuDanych_14[i]; licznik_bitów++;}
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
 
         return dane_nagłówka;
     }//Koniec metody tworzącej nagłówej bajtowy do zapisu.
 
-<<<<<<< HEAD
-=======
-        
-        return dane_nagłówka;
-    }//Koniec metody tworzącej nagłówej bajtowy do zapisu.
-    
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
->>>>>>> master
     /**
      * Metoda zwracająca nagłówek w postaci bajtowej (na zewnątrz).
      * @return Nagłówek pliku wave w postaci gotowej do zapisu.
@@ -312,15 +195,7 @@ public class NagłówekPlikuWave
     {
         return this.TwórzNagłówekBajtowy();
     }//Koniec metody zwracającej bajty nagłówka
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
-
->>>>>>> master
     /**
      * Pierwszy konstruktor tworzący nagłówkek dla pustego pliku wave.
      * @param LiczbaBitów Liczba bitów (rozdzielczość bitowa) sygnału
@@ -336,25 +211,11 @@ public class NagłówekPlikuWave
         byte[] DodatkoweParametryDoWpisywaniaTab;
         int WyliczonyRozmiarOpisu;
         byte[] TymczasowyNagłówekBajtowy;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
 
         InicjalizacjaPodstawowychElementówNagłówka();
 
         this.FormatAudio_6 = LittleBigEndian.ZamieńUnsignedShortNaTablicęLittleEndian(RodzajKodowaniaDanych);
 
-<<<<<<< HEAD
-=======
-        
-        InicjalizacjaPodstawowychElementówNagłówka();
-        
-        this.FormatAudio_6 = LittleBigEndian.ZamieńUnsignedShortNaTablicęLittleEndian(RodzajKodowaniaDanych);
-        
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
->>>>>>> master
         RozmiarPróbki = LiczbaKanałów * LiczbaBitów/8;
         CzęstotliwośćBajtów = LiczbaKanałów * CzęstotliwośćPróbkowania * LiczbaBitów/8;
         if(DodatkoweParametryDoWpisania.length() > 0)
@@ -364,21 +225,9 @@ public class NagłówekPlikuWave
         {
             DodatkoweParametryDoWpisywaniaTab = new byte[2]; //Typowo dwa bajty na parametry extra
         }//end if
-<<<<<<< HEAD
-<<<<<<< HEAD
 
         WyliczonyRozmiarOpisu = 16 + DodatkoweParametryDoWpisywaniaTab.length;
 
-=======
-        
-        WyliczonyRozmiarOpisu = 16 + DodatkoweParametryDoWpisywaniaTab.length;
-        
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
-
-        WyliczonyRozmiarOpisu = 16 + DodatkoweParametryDoWpisywaniaTab.length;
-
->>>>>>> master
         this.RozmiarOpisu_5 = LittleBigEndian.ZamieńSignedIntNaTablicęLittleEndian(WyliczonyRozmiarOpisu);
         this.LiczbaKanałów_7 = LittleBigEndian.ZamieńUnsignedShortNaTablicęLittleEndian(LiczbaKanałów);
         this.CzęstotliwośćPróbkowania_8 = LittleBigEndian.ZamieńUnsignedIntNaTablicęLittleEndian(CzęstotliwośćPróbkowania);
@@ -386,10 +235,6 @@ public class NagłówekPlikuWave
         this.RozmiarPróbki_10 = LittleBigEndian.ZamieńUnsignedShortNaTablicęLittleEndian(RozmiarPróbki);
         this.LiczbaBitówWPróbce_11 = LittleBigEndian.ZamieńUnsignedShortNaTablicęLittleEndian(LiczbaBitów);
         this.DodatkoweParametry_12 = DodatkoweParametryDoWpisywaniaTab;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
 
         TymczasowyNagłówekBajtowy = this.TwórzNagłówekBajtowy();
 
@@ -397,18 +242,6 @@ public class NagłówekPlikuWave
 
     }//Koniec konstruktora
 
-<<<<<<< HEAD
-=======
-        
-        TymczasowyNagłówekBajtowy = this.TwórzNagłówekBajtowy();
-        
-        this.RozmiarDanych_2 = LittleBigEndian.ZamieńUnsignedIntNaTablicęLittleEndian(TymczasowyNagłówekBajtowy.length - 8);
-        
-    }//Koniec konstruktora
-    
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
->>>>>>> master
     /**
      * Konstruktor tworzący instancję klasy na podstawie danych odczytanych z pliku (tablica bajtowa).
      * @param TablicaBajtowaZNagłówkiem Dane odczytane z pliku.
@@ -418,27 +251,12 @@ public class NagłówekPlikuWave
         int liczba_bajtów_dodatkowych_parametrów;
         byte[] długość_wyliczonego_rozmiaru_opisu;
         int przesunięcie;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
 
         this.InicjalizacjaPodstawowychElementówNagłówka();
 
         długość_wyliczonego_rozmiaru_opisu = this.PrzepiszFragmentTablicy(TablicaBajtowaZNagłówkiem, 16, 19);
         liczba_bajtów_dodatkowych_parametrów = (int) LittleBigEndian.UtwórzUnsignedIntZLittleEndian(długość_wyliczonego_rozmiaru_opisu) - 16;
 
-<<<<<<< HEAD
-=======
-        
-        this.InicjalizacjaPodstawowychElementówNagłówka();
-        
-        długość_wyliczonego_rozmiaru_opisu = this.PrzepiszFragmentTablicy(TablicaBajtowaZNagłówkiem, 16, 19);
-        liczba_bajtów_dodatkowych_parametrów = (int)LittleBigEndian.UtwórzUnsignedIntZLittleEndian(długość_wyliczonego_rozmiaru_opisu) - 16;
-        
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
->>>>>>> master
         this.ID_1 = this.PrzepiszFragmentTablicy(TablicaBajtowaZNagłówkiem, 0, 3);
         this.RozmiarDanych_2 = this.PrzepiszFragmentTablicy(TablicaBajtowaZNagłówkiem, 4, 7);
         this.FormatID_3 = this.PrzepiszFragmentTablicy(TablicaBajtowaZNagłówkiem, 8, 11);
@@ -450,15 +268,7 @@ public class NagłówekPlikuWave
         this.CzęstotliwośćBajtów_9 = this.PrzepiszFragmentTablicy(TablicaBajtowaZNagłówkiem, 28, 31);
         this.RozmiarPróbki_10 = this.PrzepiszFragmentTablicy(TablicaBajtowaZNagłówkiem, 32, 33);
         this.LiczbaBitówWPróbce_11 = this.PrzepiszFragmentTablicy(TablicaBajtowaZNagłówkiem, 34, 35);
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
-
->>>>>>> master
         if(liczba_bajtów_dodatkowych_parametrów == 0)
         {
             this.DodatkoweParametry_12 = null;
@@ -467,10 +277,6 @@ public class NagłówekPlikuWave
             this.DodatkoweParametry_12 = this.PrzepiszFragmentTablicy(TablicaBajtowaZNagłówkiem, 36, 36 + liczba_bajtów_dodatkowych_parametrów - 1);
             //Gdy jest jeden bajt, to idneks początkowy równa się końcowemu!
         }//end if
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
 
         przesunięcie = 36 + liczba_bajtów_dodatkowych_parametrów;
 
@@ -479,33 +285,12 @@ public class NagłówekPlikuWave
 
     }//Koniec konstruktora dekodującego nagłówek pliku wave
 
-<<<<<<< HEAD
-=======
-        
-        przesunięcie = 36 + liczba_bajtów_dodatkowych_parametrów;
-        
-        this.DaneID_13 = this.PrzepiszFragmentTablicy(TablicaBajtowaZNagłówkiem, przesunięcie, przesunięcie + 3);
-        this.RozmiarBlokuDanych_14 = this.PrzepiszFragmentTablicy(TablicaBajtowaZNagłówkiem, przesunięcie + 4, przesunięcie + 4 + 3);
-        
-    }//Koniec konstruktora dekodującego nagłówek pliku wave
-    
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
->>>>>>> master
     /**
      * Metoda służąca do pobierania wybranego fragmentu tablicy byte[]
      * @param Tablica Tablica
      * @param IndeksPoczątkowy Indeks początkowy
      * @param IndeksKońcowy Indeks końcowy
-<<<<<<< HEAD
-<<<<<<< HEAD
      * @return
-=======
-     * @return 
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
-     * @return
->>>>>>> master
      */
     private byte[] PrzepiszFragmentTablicy(byte[] Tablica, int IndeksPoczątkowy, int IndeksKońcowy)
     {
@@ -513,49 +298,21 @@ public class NagłówekPlikuWave
         int ile_elementów;
         int j;
         byte[] tablica_krótsza;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
 
         ile_elementów = IndeksKońcowy - IndeksPoczątkowy + 1;
         j = 0;
         tablica_krótsza = new byte[ile_elementów];
 
-<<<<<<< HEAD
-=======
-        
-        ile_elementów = IndeksKońcowy - IndeksPoczątkowy + 1;
-        j = 0;
-        tablica_krótsza = new byte[ile_elementów];
-        
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
->>>>>>> master
         for(i = IndeksPoczątkowy; i <= IndeksKońcowy; i++)
         {
             tablica_krótsza[j] = Tablica[i];
             j++;
         }//next i
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
 
 
         return tablica_krótsza;
     }//Koniec metody pobierającej fragment tablicy byte.
 
-<<<<<<< HEAD
-=======
-        
-        
-        return tablica_krótsza;
-    }//Koniec metody pobierającej fragment tablicy byte.
-    
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
->>>>>>> master
     /**
      * Metoda sprawdzająca, czy tablice są takie same (pod względem zawartości)
      * @param Tablica1
@@ -568,27 +325,12 @@ public class NagłówekPlikuWave
         int długość2;
         boolean wynik;
         int i;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
 
         wynik = false;
 
         długość1 = Tablica1.length;
         długość2 = Tablica2.length;
 
-<<<<<<< HEAD
-=======
-        
-        wynik = false;
-        
-        długość1 = Tablica1.length;
-        długość2 = Tablica2.length;
-        
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
->>>>>>> master
         if(długość1 == długość2) //teraz sprawdzamy
         {
             wynik = true;
@@ -597,27 +339,12 @@ public class NagłówekPlikuWave
                 if(Tablica1[i] != Tablica2[i]) wynik = false;
                 i++;
             }while((i < długość1) && (wynik == true));
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
 
         }//end if
 
         return wynik;
     }//Koniec metody porównującej ze sobą tablice
 
-<<<<<<< HEAD
-=======
-            
-        }//end if
-        
-        return wynik;
-    }//Koniec metody porównującej ze sobą tablice
-    
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
->>>>>>> master
     /**
      * Metoda służąca do inicjalizacji domyślnych bajtów nagłówka pliku wave.
      */
@@ -636,21 +363,9 @@ public class NagłówekPlikuWave
         this.LiczbaBitówWPróbce_11 = new byte[2];
         this.DodatkoweParametry_12 = new byte[2]; //Typowo dwa bajty na ekstra dane - możliwość zmiany.
         this.DaneID_13 = ZamieńStringNaBajty("data");
-<<<<<<< HEAD
-<<<<<<< HEAD
         this.RozmiarBlokuDanych_14 = new byte[4];
     }//Koniec metody inicjalizującej podstawowe elementy nagłówka.
 
-=======
-        this.RozmiarBlokuDanych_14 = new byte[4];        
-    }//Koniec metody inicjalizującej podstawowe elementy nagłówka.
-    
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
-        this.RozmiarBlokuDanych_14 = new byte[4];
-    }//Koniec metody inicjalizującej podstawowe elementy nagłówka.
-
->>>>>>> master
     /**
      * Metoda sprawdzająca, czy 'RIFF' jest na swoim miejscu.
      * @return <b>true</b> gdy jest wszystko w porządku, <b>false</b>, gdy 'RIFF' nie został znaleziony.
@@ -658,27 +373,12 @@ public class NagłówekPlikuWave
     private boolean CzyRIFFjestPrawidłowy()
     {
         boolean wynik;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
 
         wynik = this.CzyTabliceSąTakieSame(this.ID_1, this.ZamieńStringNaBajty("RIFF"));
 
         return wynik;
     }//Koniec sprawdzania, czy RIFF jest prawidłowy
 
-<<<<<<< HEAD
-=======
-        
-        wynik = this.CzyTabliceSąTakieSame(this.ID_1, this.ZamieńStringNaBajty("RIFF"));
-        
-        return wynik;
-    }//Koniec sprawdzania, czy RIFF jest prawidłowy
-    
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
->>>>>>> master
     /**
      * Metoda sprawdzająca, czy 'WAVE' jest na prawidłowej pozycji.
      * @return <b>true</b> gdy jest wszystko w porządku, <b>false</b>, gdy 'WAVE' nie został znaleziony.
@@ -686,27 +386,12 @@ public class NagłówekPlikuWave
     private boolean CzyWAVEjestPrawidłowy()
     {
         boolean wynik;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
 
         wynik = this.CzyTabliceSąTakieSame(this.FormatID_3, this.ZamieńStringNaBajty("WAVE"));
 
         return wynik;
     }//Koniec sprawdzania, czy WAVE jest prawidłowy
 
-<<<<<<< HEAD
-=======
-        
-        wynik = this.CzyTabliceSąTakieSame(this.FormatID_3, this.ZamieńStringNaBajty("WAVE"));
-        
-        return wynik;
-    }//Koniec sprawdzania, czy WAVE jest prawidłowy
-    
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
->>>>>>> master
     /**
      * Metoda sprawdzająca, czy 'fmt ' jest na właściwej pozycji.
      * @return <b>true</b> gdy jest wszystko w porządku, <b>false</b>, gdy 'fmt ' nie został znaleziony.
@@ -714,27 +399,12 @@ public class NagłówekPlikuWave
     private boolean Czy_fmt_jestPrawidłowe()
     {
         boolean wynik;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
 
         wynik = this.CzyTabliceSąTakieSame(this.OpisID_4, this.ZamieńStringNaBajty("fmt "));
 
         return wynik;
     }//Koniec metody sprawdzającej, czy 'fmt ' jest prawidłowe
 
-<<<<<<< HEAD
-=======
-        
-        wynik = this.CzyTabliceSąTakieSame(this.OpisID_4, this.ZamieńStringNaBajty("fmt "));
-        
-        return wynik;
-    }//Koniec metody sprawdzającej, czy 'fmt ' jest prawidłowe
-    
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
->>>>>>> master
     /**
      * Metoda sprawdzająca poprawność częstotliwości bajtowej (liczba bajtów/sekundę).
      * @return <b>true</b> gdy jest wszystko w porządku, <b>false</b>, gdy częstotliwość bajtowa jest nieprawidłowa.
@@ -745,10 +415,6 @@ public class NagłówekPlikuWave
         long CzęstotliwośćBajtowa;
         long OdczytanaCzęstotliwośćBajtowa;
         int LiczbaBajtów;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
 
         CzęstotliwośćPróbkowania = this.getCzęstotliwośćPróbkowania();
         OdczytanaCzęstotliwośćBajtowa = this.getCzęstotliwośćBajtową();
@@ -760,22 +426,6 @@ public class NagłówekPlikuWave
 
     }//Koniec metody sprawdzającej, czy częśtotliwość bajtowa jest prawidłowa
 
-<<<<<<< HEAD
-=======
-        
-        CzęstotliwośćPróbkowania = this.getCzęstotliwośćPróbkowania();
-        OdczytanaCzęstotliwośćBajtowa = this.getCzęstotliwośćBajtową();
-        LiczbaBajtów = this.getLiczbęBajtówNaCałąPróbkę(); //Liczba bajtów na całą próbkę uwzględnia liczbę kanałów!
-        
-        CzęstotliwośćBajtowa = LiczbaBajtów * CzęstotliwośćPróbkowania;
-        
-        return CzęstotliwośćBajtowa == OdczytanaCzęstotliwośćBajtowa;
-                
-    }//Koniec metody sprawdzającej, czy częśtotliwość bajtowa jest prawidłowa
-    
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
->>>>>>> master
     /**
      * Metoda sprawdzająca, czy rozmiar próbki jest prawidłowy (wyrażony w bajtach).
      * @return <b>true</b> gdy jest wszystko w porządku, <b>false</b>, gdy rozmiar jest nieprawidłowy.
@@ -784,15 +434,7 @@ public class NagłówekPlikuWave
     {
         return ((this.getLiczbęKanałów() * this.getLiczbęBitów()/8) == this.getLiczbęBajtówNaCałąPróbkę());
     }//Koniec sprawdzania, czy rozmiar próbki jest prawidłowy
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
-
->>>>>>> master
     /**
      * Metoda sprawdzającam czy liczba bitów (rozdzielczość bitowa) jest wielokrotnością liczby 8.
      * @return <b>true</b> gdy jest wszystko w porządku, <b>false</b>, gdy liczba bitów jest nieprawidłowa.
@@ -801,15 +443,7 @@ public class NagłówekPlikuWave
     {
         return (this.getLiczbęBitów() % 8) == 0;
     }//Koniec sprawdzania, czy liczba bitów jest prawidłowa (wielokrotność 8)
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
-
->>>>>>> master
     /**
      * Metoda spradzająca, czy 'data' jest na właściwej pozycji.
      * @return <b>true</b> gdy jest wszystko w porządku, <b>false</b>, gdy tekst 'data ' nie został znaleziony.
@@ -817,27 +451,12 @@ public class NagłówekPlikuWave
     private boolean Czy_data_jestPrawidłowa()
     {
         boolean wynik;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
 
         wynik = this.CzyTabliceSąTakieSame(this.DaneID_13, this.ZamieńStringNaBajty("data"));
 
         return wynik;
     }//Koniec sprawdzania, czy RIFF jest prawidłowy
 
-<<<<<<< HEAD
-=======
-        
-        wynik = this.CzyTabliceSąTakieSame(this.DaneID_13, this.ZamieńStringNaBajty("data"));
-        
-        return wynik;
-    }//Koniec sprawdzania, czy RIFF jest prawidłowy
-    
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
->>>>>>> master
     /**
      * Metoda sprawdzająca kompleksowo poprawność nagłówka.
      * @return tablica ze stanem poprawności nagłówka. Jeżeli wszystko jest poprawne, tablica jest jednoelementowa. W innym przypadku tablica ma 8 elementów.
@@ -852,34 +471,14 @@ public class NagłówekPlikuWave
         boolean PoprawnyRozmiarPróbki;
         boolean PoprawnaRozdzielczośćBajtowa;
         boolean Poprawne_data;
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
-
->>>>>>> master
         int[] rezultat;
         boolean[] wyniki;
         int i;
         int ile_błędów;
-<<<<<<< HEAD
-<<<<<<< HEAD
 
         wyniki = new boolean[7];
 
-=======
-        
-        wyniki = new boolean[7];
-        
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
-
-        wyniki = new boolean[7];
-
->>>>>>> master
         PoprawneRIFF = this.CzyRIFFjestPrawidłowy();
         PoprawneWAVE = this.CzyWAVEjestPrawidłowy();
         Poprawne_fmt = this.Czy_fmt_jestPrawidłowe();
@@ -887,15 +486,7 @@ public class NagłówekPlikuWave
         PoprawnyRozmiarPróbki = this.CzyRozmiarPróbkiJestPrawidłowy();
         PoprawnaRozdzielczośćBajtowa = this.CzyLiczbaBitówJestPrawidłowa();
         Poprawne_data = this.Czy_data_jestPrawidłowa();
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
-
->>>>>>> master
         wyniki[0] = PoprawneRIFF;
         wyniki[1] = PoprawneWAVE;
         wyniki[2] = Poprawne_fmt;
@@ -903,25 +494,11 @@ public class NagłówekPlikuWave
         wyniki[4] = PoprawnyRozmiarPróbki;
         wyniki[5] = PoprawnaRozdzielczośćBajtowa;
         wyniki[6] = Poprawne_data;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
 
         ile_błędów = 0;
 
         for(i = 0; i < wyniki.length; i++) if(!wyniki[i]) ile_błędów++;
 
-<<<<<<< HEAD
-=======
-        
-        ile_błędów = 0;
-        
-        for(i = 0; i < wyniki.length; i++) if(!wyniki[i]) ile_błędów++;
-                
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
->>>>>>> master
         if(ile_błędów == 0)
         {
             rezultat = new int[1];
@@ -929,103 +506,43 @@ public class NagłówekPlikuWave
         }else
         {
             rezultat = new int[wyniki.length];
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-            
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
-
->>>>>>> master
             for(i = 0; i < rezultat.length; i++)
             {
                 if(i == 0) //RIFF
                 {
                     if(!wyniki[0]) rezultat[0] = NagłówekPlikuWave.RIFF_NIEPRAWIDŁOWY; else rezultat[0] = NagłówekPlikuWave.RIFF_PRAWIDŁOWY;
                 }//end if
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-                
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
-
->>>>>>> master
                 if(i == 1) //WAVE
                 {
                     if(!wyniki[1]) rezultat[1] = NagłówekPlikuWave.WAVE_NIEPRAWIDŁOWY; else rezultat[1] = NagłówekPlikuWave.WAVE_PRAWIDŁOWY;
                 }//end if
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-                
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
-
->>>>>>> master
                 if(i == 2) //'fmt '
                 {
                     if(!wyniki[2]) rezultat[2] = NagłówekPlikuWave.fmt_NIEPRAWIDŁOWY; else rezultat[2] = NagłówekPlikuWave.fmt_PRAWIDŁOWY;
                 }//end if
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-                
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
-
->>>>>>> master
                 if(i == 3) //Poprawna częstotliwość bajtowa
                 {
                     if(!wyniki[3]) rezultat[3] = NagłówekPlikuWave.CZĘSTOTLIWOŚĆ_BAJTÓW_NIEPRAWIDŁOWA; else rezultat[3] = NagłówekPlikuWave.CZĘSTOTLIWOŚĆ_BAJTÓW_PRAWIDŁOWA;
                 }//end if
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-                
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
-
->>>>>>> master
                 if(i == 4) //Rozmiar próbki
                 {
                     if(!wyniki[4]) rezultat[4] = NagłówekPlikuWave.ROZMIAR_PRÓBKI_NIEPRAWIDŁOWY; else rezultat[4] = NagłówekPlikuWave.ROZMIAR_PRÓBKI_PRAWIDŁOWY;
                 }//end if
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-                
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
-
->>>>>>> master
                 if(i == 5) //Rozdzielczość bitowa
                 {
                     if(!wyniki[5]) rezultat[5] = NagłówekPlikuWave.ROZDZIELCZOŚĆ_NIEPRAWIDŁOWA; else rezultat[5] = NagłówekPlikuWave.ROZDZIELCZOŚĆ_PRAWIDŁOWA;
                 }//end if
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-                
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
-
->>>>>>> master
                 if(i == 6) //Słowo kluczowe 'data'
                 {
                     if(!wyniki[6]) rezultat[6] = NagłówekPlikuWave.data_NIEPRAWIDŁOWA; else rezultat[6] = NagłówekPlikuWave.data_PRAWIDŁOWA;
                 }//end if
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
 
             }//next i
 
@@ -1035,20 +552,6 @@ public class NagłówekPlikuWave
         return rezultat;
     }//Koniec metody sparawdzającej poprawność nagłówka
 
-<<<<<<< HEAD
-=======
-                
-            }//next i
-            
-        }//end if
-        
-        
-        return rezultat;
-    }//Koniec metody sparawdzającej poprawność nagłówka
-    
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
->>>>>>> master
     /**
      * Metoda zwracająca opis komunikatów.
      * @param i Tu podstawiamy którąś ze stałych.
@@ -1057,21 +560,9 @@ public class NagłówekPlikuWave
     public static String OpisStałych(int i)
     {
         String opis;
-<<<<<<< HEAD
-<<<<<<< HEAD
 
         opis = "";
 
-=======
-        
-        opis = "";
-        
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
-
-        opis = "";
-
->>>>>>> master
         if(i == NagłówekPlikuWave.WSZYSTKO_PRAWIDŁOWE) opis = "Nagłówek całkowicie poprawny";
         if(i == NagłówekPlikuWave.RIFF_PRAWIDŁOWY) opis = "RIFF jest prawidłowy";
         if(i == NagłówekPlikuWave.RIFF_NIEPRAWIDŁOWY) opis = "RIFF jest nieprawidłowy";
@@ -1087,23 +578,10 @@ public class NagłówekPlikuWave
         if(i == NagłówekPlikuWave.ROZDZIELCZOŚĆ_NIEPRAWIDŁOWA) opis = "Rozdzielczość bitowa jest nieprawidłowa";
         if(i == NagłówekPlikuWave.data_PRAWIDŁOWA) opis = "'data' jest prawidłowa";
         if(i == NagłówekPlikuWave.data_NIEPRAWIDŁOWA) opis = "'data' jest nieprawidłowa";
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
 
         return opis;
     }//Koniec opisu stałych
 
-<<<<<<< HEAD
-=======
-        
-        return opis;
-    }//Koniec opisu stałych
-    
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
->>>>>>> master
     /**
      * Metoda zwracająca częstiotliwość próbkowania.
      * @return Częstotliwość próbkowania [Hz].
@@ -1111,27 +589,12 @@ public class NagłówekPlikuWave
     public int getCzęstotliwośćPróbkowania()
     {
         int wynik;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
 
         wynik = (int) LittleBigEndian.UtwórzUnsignedIntZLittleEndian(this.CzęstotliwośćPróbkowania_8);
 
         return wynik;
     }//Koniec metody zwracającej częstotliwość próbkowania
 
-<<<<<<< HEAD
-=======
-        
-        wynik = (int)LittleBigEndian.UtwórzUnsignedIntZLittleEndian(this.CzęstotliwośćPróbkowania_8);
-        
-        return wynik;
-    }//Koniec metody zwracającej częstotliwość próbkowania
-    
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
->>>>>>> master
     /**
      * Metoda zwracająca częstotliwość bajtową.
      * @return Częstotliwość bajtowa [bajty/s].
@@ -1139,27 +602,12 @@ public class NagłówekPlikuWave
     public long getCzęstotliwośćBajtową()
     {
         long wynik;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
 
         wynik = LittleBigEndian.UtwórzUnsignedIntZLittleEndian(this.CzęstotliwośćBajtów_9);
 
         return wynik;
     }//Koniec metody zwracającej częstotliwość bajtową
 
-<<<<<<< HEAD
-=======
-        
-        wynik = LittleBigEndian.UtwórzUnsignedIntZLittleEndian(this.CzęstotliwośćBajtów_9);
-        
-        return wynik;
-    }//Koniec metody zwracającej częstotliwość bajtową
-    
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
->>>>>>> master
     /**
      * Metoda zwracająca liczbę bitów (rozdzielczość bitową sygnału).
      * @return Liczba bitów (8, 16, 24 lub 32).
@@ -1167,27 +615,12 @@ public class NagłówekPlikuWave
     public int getLiczbęBitów()
     {
         int wynik;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
 
         wynik = LittleBigEndian.UtwórzUnsignedShortZLittleEndian(this.LiczbaBitówWPróbce_11);
 
         return wynik;
     }//Koniec metody zwracającej liczbę bitów w próbce
 
-<<<<<<< HEAD
-=======
-        
-        wynik = LittleBigEndian.UtwórzUnsignedShortZLittleEndian(this.LiczbaBitówWPróbce_11);
-        
-        return wynik;
-    }//Koniec metody zwracającej liczbę bitów w próbce
-    
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
->>>>>>> master
     /**
      * Metoda zwracająca liczbę kanałów w pliku wave.
      * @return Liczba kanałów.
@@ -1195,10 +628,6 @@ public class NagłówekPlikuWave
     public int getLiczbęKanałów()
     {
         int wynik;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
 
         wynik = LittleBigEndian.UtwórzUnsignedShortZLittleEndian(this.LiczbaKanałów_7);
 
@@ -1206,18 +635,6 @@ public class NagłówekPlikuWave
 
     }//Koniec metody zwracającej liczbę kanałów
 
-<<<<<<< HEAD
-=======
-        
-        wynik = LittleBigEndian.UtwórzUnsignedShortZLittleEndian(this.LiczbaKanałów_7);
-        
-        return wynik;
-        
-    }//Koniec metody zwracającej liczbę kanałów
-    
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
->>>>>>> master
     /**
      * Metoda zwracająca liczbę bajtów na każdą próbkę (konieczne w trakcie odczytu!)
      * @return Liczba bajtów na próbkę.
@@ -1225,27 +642,12 @@ public class NagłówekPlikuWave
     public int getLiczbęBajtówNaCałąPróbkę()
     {
         int wynik;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
 
         wynik = LittleBigEndian.UtwórzUnsignedShortZLittleEndian(this.RozmiarPróbki_10);
 
         return wynik;
     }//Koniec metody zwracającej liczbę bajtów na całą próbkę
 
-<<<<<<< HEAD
-=======
-        
-        wynik = LittleBigEndian.UtwórzUnsignedShortZLittleEndian(this.RozmiarPróbki_10);
-        
-        return wynik;
-    }//Koniec metody zwracającej liczbę bajtów na całą próbkę
-    
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
->>>>>>> master
     /**
      * Metoda zwracająca dodatkowe parametry z pliku wave.
      * @return Dodatkowe parametry z nagłówka.
@@ -1255,10 +657,6 @@ public class NagłówekPlikuWave
         String wynik;
         char[] TablicaZnaków;
         int i;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
 
         wynik = "";
 
@@ -1266,26 +664,10 @@ public class NagłówekPlikuWave
         {
             TablicaZnaków = new char[this.DodatkoweParametry_12.length];
 
-<<<<<<< HEAD
-=======
-        
-        wynik = "";
-        
-        if(this.DodatkoweParametry_12 != null)
-        {
-            TablicaZnaków = new char[this.DodatkoweParametry_12.length];
-            
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
->>>>>>> master
             for(i = 0; i < this.DodatkoweParametry_12.length;i++)
             {
                 TablicaZnaków[i] = (char)this.DodatkoweParametry_12[i];
             }//next i
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
 
             wynik = String.copyValueOf(TablicaZnaków);
         }//end if
@@ -1293,18 +675,6 @@ public class NagłówekPlikuWave
         return wynik;
     }//Koniec metody zwracającej dodatkowe parametry
 
-<<<<<<< HEAD
-=======
-            
-            wynik = String.copyValueOf(TablicaZnaków);
-        }//end if
-        
-        return wynik;
-    }//Koniec metody zwracającej dodatkowe parametry
-    
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
->>>>>>> master
     /**
      * Metoda zwracająca długość bloku danych sygnału. Uwaga! Przy dopisywaniu danych do pliku wave, dana ta musi być modyfikowana!
      * @return Długość bloku sygnału [B].
@@ -1312,27 +682,12 @@ public class NagłówekPlikuWave
     public long getDługośćBlokuDanychSygnału()
     {
         long wynik;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
 
         wynik = LittleBigEndian.UtwórzUnsignedIntZLittleEndian(this.RozmiarBlokuDanych_14);
 
         return wynik;
     }//Koniec metody zwracającej długość bloku danych z dźwiękiem
 
-<<<<<<< HEAD
-=======
-        
-        wynik = LittleBigEndian.UtwórzUnsignedIntZLittleEndian(this.RozmiarBlokuDanych_14);
-        
-        return wynik;
-    }//Koniec metody zwracającej długość bloku danych z dźwiękiem
-    
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
->>>>>>> master
     /**
      * Metoda służy do zwracania zawartości pola drugiego w pliku Wave. Wartość tego pola to wielkość pliku - 8.
      * @return Zawartość pola 2.
@@ -1341,15 +696,7 @@ public class NagłówekPlikuWave
     {
         return LittleBigEndian.UtwórzUnsignedIntZLittleEndian(this.RozmiarDanych_2);
     }//Koniec metody zwracającej pole 2 nagłówka
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
-
->>>>>>> master
     /**
      * Metoda ustawiająca długość bloku sygnału po dopisaniu.
      * <br>
@@ -1372,15 +719,7 @@ public class NagłówekPlikuWave
     {
         this.RozmiarBlokuDanych_14 = LittleBigEndian.ZamieńUnsignedIntNaTablicęLittleEndian(WielkośćBloku);
     }//Koniec
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
-
->>>>>>> master
     /**
      * Metoda ustawiająca nowy rozmiar danych (pole nr 2) - porzebne przed zapisem!
      * @param RozmiarDanych Nowy rozmiar danych.
@@ -1389,37 +728,15 @@ public class NagłówekPlikuWave
     {
         this.RozmiarDanych_2 = LittleBigEndian.ZamieńUnsignedIntNaTablicęLittleEndian(RozmiarDanych);
     }//Koniec metody ustawiającej nowy rozmiar danych
-<<<<<<< HEAD
-<<<<<<< HEAD
 
     /**
      * Metoda zwracająca oznaczenie kodowe formatu audio (na przykład: 1 - PCM, 3 - IEEE_FLOAT).
-=======
-    
-    /**
-     * Metoda zwracająca oznaczenie kodowe formatu audio (na przykład: 1 - PCM, 3 - IEEE_FLOAT). 
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
-
-    /**
-     * Metoda zwracająca oznaczenie kodowe formatu audio (na przykład: 1 - PCM, 3 - IEEE_FLOAT).
->>>>>>> master
      * @return Kod formatu audio.
      */
     public int getKodowanieDźwięku()
     {
         return LittleBigEndian.UtwórzUnsignedShortZLittleEndian(this.FormatAudio_6);
     }//Koniec metody zwracającej kodowanie dźwięku
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 
-=======
-    
-    
->>>>>>> 634daa31d7ba71c753c36dc5fa4b9438937a8359
-=======
-
-
->>>>>>> master
 }//Koniec klasy
