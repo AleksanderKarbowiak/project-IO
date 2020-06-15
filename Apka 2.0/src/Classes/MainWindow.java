@@ -45,9 +45,6 @@ public class MainWindow extends JFrame {
         bazaNagranButton.addActionListener(addNewForm);
         bazaNagrań = new Baza_danych();
         bazaNagrań.pobierzListe();
-<<<<<<< Updated upstream
-        
-=======
         try {
             Kalibracja.pobierzNagranie();
             Kalibracja.Kalibruj(Kalibracja.nagranieKalibracyjne);
@@ -67,7 +64,6 @@ public class MainWindow extends JFrame {
             plec.addItem(Pleci[i]);
         }
         plec.setSelectedIndex(0);
->>>>>>> Stashed changes
         czestotliwoscF0Button.addActionListener(obliczF0Panel);
 
     }

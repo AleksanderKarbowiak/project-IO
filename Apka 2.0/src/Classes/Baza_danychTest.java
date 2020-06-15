@@ -73,8 +73,4 @@ public class Baza_danychTest {
     @org.junit.Test
     public void nagrania() {
     }
-<<<<<<< Updated upstream
 }
-=======
-}
->>>>>>> Stashed changes
