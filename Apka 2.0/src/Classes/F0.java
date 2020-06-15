@@ -1,24 +1,34 @@
 package Classes;
 
 /**
- * Class F0
+ * Klasa z metodami obliczającymi częstotliwość podstawową
  */
 public class F0 {
 
-  /** Metoda obliczająca ile momentów (ile zestawów po 4096 próbki) jest w wybranym pliku */
+  /**
+   * Metoda obliczająca ile momentów (ile zestawów po 4096 próbki) jest w wybranym pliku
+   * @param nazwaPliku
+   * @return ile - liczba momentów w wybranym pliku
+   */
   public static int IleMomentów(String nazwaPliku) {
     PlikWave plik = new PlikWave(nazwaPliku);
     plik.OtwórzIstniejącyPlik();
     int ile = (int)(plik.getLiczbęPróbek()/4096);
     return ile;
   }
-  /** Metoda oblicza F0 z uśrednionego widma otrzymanego z FFT */
+
+  /**
+   * Metoda oblicza F0 z uśrednionego widma otrzymanego z FFT
+   * @param nazwaPliku
+   * @return średnieF0 - średnia wartość częstotliwości podstawowej
+   */
   public static double ObliczŚrednieF0(String nazwaPliku) {
 
     PlikWave plik = new PlikWave(nazwaPliku);
     plik.OtwórzIstniejącyPlik();
 
     long fsamp = plik.getCzęstotliwośćPróbkowania();
+    System.out.println(fsamp);
 
     double[] wyniki = new double[2048];
 
@@ -70,13 +80,18 @@ public class F0 {
 
     średnieF0 = SzukajF0(wyniki, fsamp);
 
-    Wykres wykres = new Wykres(wyniki, "Uśrednione widmo nagrania");
+    Wykres wykres = new Wykres(wyniki, "Uśrednione widmo nagrania", fsamp);
     wykres.setVisible(true);
 
     return średnieF0;
   }
 
-  /** Metoda oblicza F0 i wyświetla wykres wybranego momentu nagrania */
+  /**
+   * Metoda oblicza F0 i wyświetla wykres wybranego momentu nagrania
+   * @param nazwaPliku
+   * @param moment - wybrany moment dla którego ma zostać obliczone F0
+   * @return F0 - wartość częstotliwości podstawowej w wybranym momencie
+   */
   public static double ObliczF0wJednymMomencie(String nazwaPliku, int moment) {
     PlikWave plik = new PlikWave(nazwaPliku);
     plik.OtwórzIstniejącyPlik();
@@ -112,22 +127,36 @@ public class F0 {
 
     F0 = SzukajF0(fftLabs, fsamp);
 
-    Wykres wykres = new Wykres(fftLabs, "Widmo " + moment + " momentu");
+    Wykres wykres = new Wykres(fftLabs, "Widmo " + moment + " momentu", fsamp);
     wykres.setVisible(true);
 
     return F0;
   }
-  /** Metoda wyszukuje częstotliwość podstawową (F0) z podanego widma FFT*/
+
+  /**
+   * Metoda wyszukuje częstotliwość podstawową (F0) z podanego widma FFT
+   * @param tab
+   * @param  f
+   * @return maxIndex - największa wartość
+   */
   private static double SzukajF0(double[] tab, double f)
   {
     double maxIndex = 0;
     double maxValue = 0;
     double krok = f/tab.length;
     boolean boo = false;
+    double średniaAmp = 0;
+    double suma = 0;
+
+    for (int i = 3; i < tab.length/2; i++) {
+      suma += tab[i];
+    }
+    średniaAmp = suma / (tab.length/2);
+    System.out.println("Srednia: " + średniaAmp);
 
     for (int i = 3; i < tab.length/2 - 3; i++) {
 
-      if (tab[i-3] < tab[i] && tab[i-2] < tab[i] && tab[i-1] < tab[i] && // jeśli 3 poprzednie i 3 następne wartości są mniejsze od obecnej
+      if (tab[i] > średniaAmp && (tab[i-3] < tab[i] || i-3 < 3) && tab[i-2] < tab[i] && tab[i-1] < tab[i] && // jeśli 3 poprzednie i 3 następne wartości są mniejsze od obecnej
               tab[i+1] < tab[i] && tab[i+2] < tab[i] && tab[i+3] < tab[i]) {
 
         if (maxIndex == 0) {

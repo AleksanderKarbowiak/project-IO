@@ -20,9 +20,9 @@ public class Baza_danychTest {
     {
         try {
             System.out.println("dodajNagranieTest");
-            baza_danych.dodajNagranie(new Nagranie("jeden", "aaa", "AAA"));
-            baza_danych.dodajNagranie(new Nagranie("dwa", "bbb", "BBB"));
-            baza_danych.dodajNagranie(new Nagranie("trzy", "ccc", "CCC"));
+            baza_danych.dodajNagranie(new Nagranie("jeden", "aaa", "AAA","11","female"));
+            baza_danych.dodajNagranie(new Nagranie("dwa", "bbb", "BBB","22","male"));
+            baza_danych.dodajNagranie(new Nagranie("trzy", "ccc", "CCC","18","male"));
             System.out.println("Lista nagran: ");
             for (Nagranie x : baza_danych.nagrania)
             {
@@ -73,4 +73,8 @@ public class Baza_danychTest {
     @org.junit.Test
     public void nagrania() {
     }
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes

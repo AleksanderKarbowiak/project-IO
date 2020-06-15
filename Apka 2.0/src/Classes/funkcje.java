@@ -1,3 +1,4 @@
+package Classes;
 /**
  * Klasa służąca do generowania spróbkowanych typowych funkcji
  */
@@ -18,8 +19,13 @@ public class funkcje
         Ts = 1/fs;
         this.N = N;
     }//Koniec próbkowania
-    
-    
+
+    /**
+     * metoda zwracająca sinus na podstawie częstotliwości i amplitudy
+     * @param Częstotliwość
+     * @param Amplituda
+     * @return wynik
+     */
     public double[] sinus(double Częstotliwość, double Amplituda)
     {
         double omega;
@@ -42,7 +48,12 @@ public class funkcje
         
         return wynik;
     }//Koniec metody sinus
-    
+    /**
+     * metoda budująca sygnał o kształcie prostokąta
+     * @param CzasTrwania - czas trwania sygnału
+     * @param Amplituda
+     * @return wynik - tablica z wartościami tworzącymi sygnał o kształcie prostokąta
+     */
     public double[] prostokąt(double CzasTrwania, double Amplituda)
     {
         double[] wynik;
@@ -69,8 +80,13 @@ public class funkcje
         return wynik;
         
     }//Koniec metody prostokąt;
-    
-    
+
+    /**
+     * metoda licząca spadek wykładniczy
+     * @param Współczynnik
+     * @param Amplituda
+     * @return wynik - wartość spadku wykładniczego
+     */
     public double[] SpadekWykładniczy(double Współczynnik, double Amplituda)
     {
         double[] wynik;
@@ -89,8 +105,13 @@ public class funkcje
         return wynik;
         
     }//Koniec fukcji A*e^(-at)
-    
-    
+
+    /**
+     * metoda budująca okresowy sygnał o kształcie prostokąta
+     * @param IleOkresów - liczba okresów
+     * @param Amplituda
+     * @return wynik
+     */
     public double[] OkresowyProstokąt(double Amplituda, double IleOkresów)
     {
         double wynik[];

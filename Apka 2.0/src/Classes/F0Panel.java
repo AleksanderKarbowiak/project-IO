@@ -18,7 +18,12 @@ public class F0Panel extends JFrame {
     private JLabel wynikMomentu;
 
     private int ileMomentów;
-
+    
+    /**
+     * Konstruktor panelu F0
+     * @param nazwa
+     * @param baza
+     */
     public F0Panel(String nazwa, Baza_danych baza) {
         super(nazwa);
 

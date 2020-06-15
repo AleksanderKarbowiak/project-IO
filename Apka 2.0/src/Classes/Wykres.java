@@ -19,14 +19,14 @@ import java.awt.Font;
 
 public class Wykres extends JFrame {
 
-    public Wykres(double[] tab, String title) {
+    public Wykres(double[] tab, String title, long fsamp) {
 
-        initUI(tab, title);
+        initUI(tab, title, fsamp);
     }
 
-    private void initUI(double[] tab, String title) {
+    private void initUI(double[] tab, String title, long fsamp) {
 
-        XYDataset dataset = createDataset(tab);
+        XYDataset dataset = createDataset(tab, fsamp);
         JFreeChart chart = createChart(dataset);
 
         ChartPanel chartPanel = new ChartPanel(chart);
@@ -40,16 +40,15 @@ public class Wykres extends JFrame {
         //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    private XYDataset createDataset(double[] tab) {
+    private XYDataset createDataset(double[] tab, long fsamp) {
 
         var seria = new XYSeries("Widmo");
 
-        double fs = 16000;
-        double krok = fs/tab.length;
+        double krok = (double)fsamp/tab.length;
         double f = 0;
-        for (int i =0; i< tab.length/2; i++)
+        for (int i = 0; i< tab.length/2; i++)
         {
-            seria.add(f, tab[i]/(tab.length/2));
+            seria.add(f, tab[i]);
             f += krok;
         }
 
@@ -97,5 +96,4 @@ public class Wykres extends JFrame {
 
         return chart;
     }
-
 }

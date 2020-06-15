@@ -20,8 +20,8 @@ public class Nagrywarka {
      * @return nagranie
      */
 
-    Nagranie Nagraj(String nazwa, String imie, String nazwisko) {
-        Nagranie nagranie = new Nagranie(nazwa, imie, nazwisko);
+    Nagranie Nagraj(String nazwa, String imie, String nazwisko, String wiek, String plec) {
+        Nagranie nagranie = new Nagranie(nazwa, imie, nazwisko, wiek, plec);
         wavFile = new File(path + nazwa + ".wav");
         Start();
         return nagranie;
@@ -33,7 +33,7 @@ public class Nagrywarka {
     private void Start() {
         try {
             /** Format audio - częstotliwość próbkowania, rozmiar próbki w bitach, wybór Mono/Stereo */
-            AudioFormat format = new AudioFormat(AudioFormat.Encoding.PCM_UNSIGNED,16000, 8, 2, 2, 16000, false);
+            AudioFormat format = new AudioFormat(AudioFormat.Encoding.PCM_UNSIGNED,44100, 8, 2, 2, 16000, false);
             DataLine.Info info = new DataLine.Info(TargetDataLine.class, format);
 
             /** Wyjątek w przypadku błędu przy połączeniu z mikrofonem (np. brak mikrofonu) */

@@ -23,8 +23,8 @@
         </properties>
         <border type="none"/>
         <children>
-          <grid id="7c0b8" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-            <margin top="50" left="50" bottom="50" right="50"/>
+          <grid id="7c0b8" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="50" bottom="50" right="0"/>
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="550" height="300"/>
@@ -36,9 +36,9 @@
             <border type="none"/>
             <children>
               <grid id="a9c7e" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                <margin top="30" left="30" bottom="30" right="30"/>
+                <margin top="30" left="30" bottom="30" right="50"/>
                 <constraints>
-                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="250" height="140"/>
                   </grid>
                 </constraints>
@@ -75,10 +75,10 @@
                   </component>
                 </children>
               </grid>
-              <grid id="170df" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+              <grid id="170df" layout-manager="GridLayoutManager" row-count="5" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="300" height="140"/>
                   </grid>
                 </constraints>
@@ -95,7 +95,11 @@
                     </constraints>
                     <properties>
                       <font name="Roboto Light" size="16"/>
+                      <opaque value="true"/>
                       <text value="imię"/>
+                      <toolTipText value=""/>
+                      <verifyInputWhenFocusTarget value="true"/>
+                      <visible value="true"/>
                     </properties>
                   </component>
                   <component id="c39f6" class="javax.swing.JTextField" binding="nazwiskoTextField" default-binding="true">
@@ -120,17 +124,48 @@
                       <text value="nazwa nagrania"/>
                     </properties>
                   </component>
+                  <component id="2eedd" class="javax.swing.JTextField" binding="wiekTextField" default-binding="true">
+                    <constraints>
+                      <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="9" fill="0" indent="0" use-parent-layout="false">
+                        <preferred-size width="300" height="50"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <font name="Roboto Light" size="16"/>
+                      <text value="wiek"/>
+                    </properties>
+                  </component>
+                  <component id="3f79f" class="javax.swing.JComboBox" binding="plec">
+                    <constraints>
+                      <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="300" height="50"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <font name="Roboto Light" size="14"/>
+                    </properties>
+                  </component>
                 </children>
               </grid>
               <component id="d41ac" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <enabled value="true"/>
                   <font name="Roboto Light" size="14"/>
                   <foreground color="-4473925"/>
                   <text value="Wprowadź swoje dane:"/>
+                </properties>
+              </component>
+              <component id="d9e8f" class="javax.swing.JLabel" binding="ledIndicator">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font size="36"/>
+                  <foreground color="-4473925"/>
+                  <text value="⚪ "/>
                 </properties>
               </component>
             </children>
@@ -180,7 +215,7 @@
               <text value="Średnia głośność"/>
             </properties>
           </component>
-          <component id="57964" class="javax.swing.JButton" binding="przebiegGlosnosciButton">
+          <component id="57964" class="javax.swing.JButton" binding="kalibrujButton">
             <constraints>
               <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="260" height="50"/>
@@ -190,7 +225,7 @@
               <background color="-2449078"/>
               <font name="Roboto Light" size="18"/>
               <foreground color="-16777216"/>
-              <text value="Przebieg głośności"/>
+              <text value="Kalibruj"/>
             </properties>
           </component>
           <component id="827ac" class="javax.swing.JLabel">
