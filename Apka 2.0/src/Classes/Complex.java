@@ -142,5 +142,10 @@ public class Complex {
     {
         return faza;
     }
+  
+    @Override
+    public String toString() {
+        return "Real: " + real + " Imaginary: " + imaginary;
+    }
 
 }

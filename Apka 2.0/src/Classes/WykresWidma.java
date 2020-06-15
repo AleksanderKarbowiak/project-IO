@@ -18,12 +18,28 @@ import java.awt.Color;
 import java.awt.Font;
 
 public class WykresWidma extends JFrame {
+<<<<<<< HEAD
 
+=======
+    /**
+     * klasa zawierająca metody tworzące wykres widma
+     * @param tab
+     * @param title
+     */
+>>>>>>> master
     public WykresWidma(widmo[] tab, String title) {
 
         initUI(tab, title);
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * Metoda tworząca wykres
+     * @param tab
+     * @param title
+     */
+>>>>>>> master
     private void initUI(widmo[] tab, String title) {
 
         //XYDataset dataset = createDataset(tab);
@@ -39,7 +55,15 @@ public class WykresWidma extends JFrame {
         setLocationRelativeTo(null);
         //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+<<<<<<< HEAD
 
+=======
+    /**
+     * Metoda przygotowująca dane do utworzenia wykresu
+     * @param tab
+     * @return
+     */
+>>>>>>> master
     private XYDataset createDataset(widmo[] tab) {
 
         /*var seria = new XYSeries("Widmo");
@@ -64,6 +88,14 @@ public class WykresWidma extends JFrame {
         return dataset;
     }
 
+<<<<<<< HEAD
+=======
+     /**
+     * Metoda pomocnicza do utworzenia wykresu
+     * @param dataset
+     * @return
+     */
+>>>>>>> master
     private JFreeChart createChart(XYDataset dataset) {
 
         JFreeChart chart = ChartFactory.createXYLineChart(
@@ -102,4 +134,8 @@ public class WykresWidma extends JFrame {
         return chart;
     }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> master

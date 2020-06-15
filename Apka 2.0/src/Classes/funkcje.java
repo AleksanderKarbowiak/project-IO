@@ -1,9 +1,7 @@
 package Classes;
-
 /**
  * Klasa służąca do generowania spróbkowanych typowych funkcji
  */
-
 public class funkcje
 {
     /**Okres próbkowania*/
@@ -20,13 +18,13 @@ public class funkcje
     {
         Ts = 1/fs;
         this.N = N;
-    }/** Koniec próbkowania */
-    
+    }//Koniec próbkowania
+
     /**
      * metoda zwracająca sinus na podstawie częstotliwości i amplitudy
-     * @param częstotliwość
-     * @param amplituda
-    * @return wynik
+     * @param Częstotliwość
+     * @param Amplituda
+     * @return wynik
      */
     public double[] sinus(double Częstotliwość, double Amplituda)
     {
@@ -46,15 +44,14 @@ public class funkcje
             arg = omega * t;
             
             wynik[i] = Amplituda * Math.sin(arg);
-        }/** next x */
+        }//next x
         
         return wynik;
-    }/** Koniec metody sinus */
-
+    }//Koniec metody sinus
     /**
      * metoda budująca sygnał o kształcie prostokąta
      * @param CzasTrwania - czas trwania sygnału
-     * @param amplituda
+     * @param Amplituda
      * @return wynik - tablica z wartościami tworzącymi sygnał o kształcie prostokąta
      */
     public double[] prostokąt(double CzasTrwania, double Amplituda)
@@ -78,16 +75,16 @@ public class funkcje
             {
                 wynik[i] = 0;
             }
-        }/** next i */
+        }//next i
         
         return wynik;
         
-    }/** Koniec metody prostokąt; */
+    }//Koniec metody prostokąt;
 
     /**
      * metoda licząca spadek wykładniczy
      * @param Współczynnik
-     * @param amplituda
+     * @param Amplituda
      * @return wynik - wartość spadku wykładniczego
      */
     public double[] SpadekWykładniczy(double Współczynnik, double Amplituda)
@@ -103,16 +100,16 @@ public class funkcje
             t = Ts * (double)i;
             
             wynik[i] = Amplituda * Math.exp(-Współczynnik * t);
-        }/** next i */
+        }//next i
         
         return wynik;
         
-    }/** Koniec fukcji A*e^(-at) */
+    }//Koniec fukcji A*e^(-at)
 
     /**
      * metoda budująca okresowy sygnał o kształcie prostokąta
      * @param IleOkresów - liczba okresów
-     * @param amplituda
+     * @param Amplituda
      * @return wynik
      */
     public double[] OkresowyProstokąt(double Amplituda, double IleOkresów)
@@ -140,14 +137,14 @@ public class funkcje
             {
                 if(wartość > 0) wartość = -Amplituda; else wartość = Amplituda;
                 k = 0;
-            }/** end if */
+            }//end if
             
-        }/** next i */
+        }//next i
         
         
         return wynik;
         
-    }/** Koniec metody zwracającej okresowy prostokąt */
+    }//Koniec metody zwracającej okresowy prostokąt
     
     
-}/** Koniec klasy */
+}//Koniec klasy

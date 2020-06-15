@@ -27,6 +27,14 @@ public class WidmoPanel extends JFrame{
     private int czestotliwosc;
     private int amplituda;
 
+<<<<<<< HEAD
+=======
+    /**
+     * Konstruktor panelu widma
+     * @param text
+     * @param baza
+     */
+>>>>>>> master
     public WidmoPanel(String text, Baza_danych baza) {
         super(text);
         this.baza = baza;
@@ -43,7 +51,13 @@ public class WidmoPanel extends JFrame{
             }
         });
     }
+<<<<<<< HEAD
 
+=======
+    /**
+        Metoda wyświetla widmo DTFT
+    */
+>>>>>>> master
     public void wyswietlWidmo() {
         Ramka Okno;
         DTFT Transformata;
