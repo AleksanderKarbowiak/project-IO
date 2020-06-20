@@ -30,6 +30,20 @@ public class BazaDanychPanel extends JFrame {
             databaseTable.setModel(model);
         }
     }
-
+    
+    /**
+     * Metoda zamienia litery znaki podanego stringa na gwiazdki
+     * @param dane
+     * @return 
+     */
+    private String Szyfrowanie(String dane)
+    {
+        String gwiazdki="*";
+        for (int i=0;i<dane.length()-1;i++)
+        {
+            gwiazdki+="*";
+        }
+        return gwiazdki;
+    }
 
 }
