@@ -30,7 +30,7 @@ public class F0 {
     long fsamp = plik.getCzęstotliwośćPróbkowania();
     System.out.println(fsamp);
 
-    double[] wyniki = new double[2048];
+    double[] wyniki = new double[4096];
 
     int ilePróbek = 4096;
     int indexPróbki = 0;
@@ -49,9 +49,9 @@ public class F0 {
 
 
       // podział na kanały
-      Complex[] zespoloneL = new Complex[ilePróbek / 2];
+      Complex[] zespoloneL = new Complex[ilePróbek];
       int licznikL = 0;
-      for (int i = 0; i < probki.length / 2; i++) {
+      for (int i = 0; i < probki.length; i++) {
 
         Complex x = new Complex(probki[i], 0);
         if (i % 2 == 0) {
@@ -104,9 +104,9 @@ public class F0 {
     byte[] probki = plik.PobierzKilkaPróbek((moment-1)*4096, ilePróbek);
 
     // podział na kanały
-    Complex[] zespoloneL = new Complex[ilePróbek / 2];
+    Complex[] zespoloneL = new Complex[ilePróbek];
     int licznikL = 0;
-    for (int i = 0; i < probki.length / 2; i++) {
+    for (int i = 0; i < probki.length; i++) {
 
       Complex x = new Complex(probki[i], 0);
       if (i % 2 == 0) {
