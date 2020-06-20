@@ -6,6 +6,7 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
+
 /**
  * Klasa głównego okna - MainWindow
  */
@@ -43,6 +44,11 @@ public class MainWindow extends JFrame {
         sredniaGlosnoscButton.addActionListener(głośnośćListener);
         kalibrujButton.addActionListener(kalibrujListener);
         bazaNagranButton.addActionListener(addNewForm);
+        imieTextField.addFocusListener(ImieListener);
+        nazwiskoTextField.addFocusListener(NazwiskoListener);
+        nazwaNagraniaField.addFocusListener(NazwaNagraniaListener);
+        wiekTextField.addFocusListener(WiekListener);
+        spektrogramButton.addActionListener(spektrogramListener);
         bazaNagrań = new Baza_danych();
         bazaNagrań.pobierzListe();
         try {
@@ -72,28 +78,100 @@ public class MainWindow extends JFrame {
      * Metoda main dla klasy MainWindow
      * @param args
      */
+
     public static void main(String[] args) {
-        JFrame frame = new JFrame("MainWindow");
+        JFrame frame = new JFrame("Anaraiza");
         frame.setContentPane(new MainWindow("Title").mainWindow);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-    }
 
+    }
     ActionListener widmoListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            JFrame frame = new JFrame("WidmoPanel");
+            JFrame frame = new JFrame("Widmo DTFT");
             frame.setContentPane(new WidmoPanel("Title2", bazaNagrań).WidmoPanel);
             frame.pack();
             frame.setVisible(true);
         }
     };
+    ActionListener spektrogramListener = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            JFrame frame = new JFrame("Spektrogram");
+            frame.setContentPane(new SpektrogramPanel("Title", bazaNagrań).SpektrogramPanel);
+            frame.pack();
+            frame.setVisible(true);
+        }
+    };
+    FocusListener ImieListener = new FocusListener() {
+        @Override
+        public void focusGained(FocusEvent e) {
+            if (imieTextField.getText().contains("imię")) {
+                imieTextField.setText("");
+            }
+        }
+        @Override
+        public void focusLost(FocusEvent e) {
+            if(imieTextField.getText().isEmpty())
+            {
+                imieTextField.setText("imię");
+            }
+        }
+    };
+    FocusListener NazwiskoListener = new FocusListener() {
+        @Override
+        public void focusGained(FocusEvent e) {
+            if (nazwiskoTextField.getText().contains("nazwisko")) {
+                nazwiskoTextField.setText("");
+            }
+        }
 
+        @Override
+        public void focusLost(FocusEvent e) {
+            if(nazwiskoTextField.getText().isEmpty())
+            {
+                nazwiskoTextField.setText("nazwisko");
+            }
+        }
+    };
+    FocusListener NazwaNagraniaListener =new FocusListener() {
+        @Override
+        public void focusGained(FocusEvent e) {
+            if (nazwaNagraniaField.getText().contains("nazwa nagrania")) {
+                nazwaNagraniaField.setText("");
+            }
+        }
+
+        @Override
+        public void focusLost(FocusEvent e) {
+            if(nazwaNagraniaField.getText().isEmpty())
+            {
+                nazwaNagraniaField.setText("nazwa nagrania");
+            }
+        }
+    };
+    FocusListener WiekListener = new FocusListener() {
+        @Override
+        public void focusGained(FocusEvent e) {
+            if(wiekTextField.getText().contains("wiek")) {
+                wiekTextField.setText("");
+            }
+        }
+
+        @Override
+        public void focusLost(FocusEvent e) {
+            if(wiekTextField.getText().isEmpty())
+            {
+                wiekTextField.setText("wiek");
+            }
+        }
+    };
     ActionListener głośnośćListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            JFrame frame = new JFrame("ŚredniaGłośnośćPanel");
+            JFrame frame = new JFrame("Średnia Głośność");
             frame.setContentPane(new ŚredniaGłośnośćPanel("Title2", bazaNagrań).ŚredniaGłośnośćPanel);
             frame.pack();
             frame.setVisible(true);
@@ -103,7 +181,7 @@ public class MainWindow extends JFrame {
     ActionListener kalibrujListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            JFrame frame = new JFrame("KalibracjaPanel");
+            JFrame frame = new JFrame("Kalibracja");
             frame.setContentPane(new KalibrujPanel("Title2", bazaNagrań).KalibrujPanel);
             frame.pack();
             frame.setVisible(true);
@@ -124,13 +202,13 @@ public class MainWindow extends JFrame {
     ActionListener addNewForm = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            JFrame frame = new JFrame("BazaDanychPanel");
+            JFrame frame = new JFrame("Baza Danych");
             frame.setContentPane(new BazaDanychPanel("Title2", bazaNagrań).DatabasePanel);
             frame.pack();
             frame.setVisible(true);
         }
     };
-    
+
     ActionListener obliczF0Panel = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -140,7 +218,7 @@ public class MainWindow extends JFrame {
             frame.setVisible(true);
         }
     };
-    
+
     ActionListener stopListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
