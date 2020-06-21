@@ -26,7 +26,7 @@ public class BazaDanychPanel extends JFrame {
         model.addColumn("Płeć");
         model.addRow(new Object[]{"Nazwa","Imię","Nazwisko","Wiek","Płeć"});
         for (Nagranie nagranie : database.nagrania()) {
-            model.addRow(new Object[]{ nagranie.nazwa, nagranie.imie, nagranie.nazwisko,nagranie.wiek,nagranie.plec });
+            model.addRow(new Object[]{ nagranie.nazwa, Szyfrowanie(nagranie.imie), Szyfrowanie(nagranie.nazwisko),nagranie.wiek,nagranie.plec });
             databaseTable.setModel(model);
         }
     }
