@@ -8,9 +8,7 @@ import java.util.*;
  */
 public class FFT
 {
-    // compute the FFT of x[], assuming its length n is a power of 2
-
-    /**
+     /**
      * Metoda służy do obliczania szybkiej transformaty Fouriera
      * @param x Liczby do konwersji
      * @return Tablica wyników FFT
@@ -52,11 +50,7 @@ public class FFT
         return y;
     }
   
-  //
-  // Methods
-  //
-
-    /**
+  /**
      * Metoda służy do obliczania odwrotnej transformaty Fouriera
      * @param x Liczby do konwersji
      * @return Tablica wyników odwrotnej transformaty Fouriera
@@ -85,5 +79,3 @@ public class FFT
 
         return y;
     }
-
-}
