@@ -10,6 +10,7 @@ import java.io.RandomAccessFile;
 
 /**
  * Klasa służąca do obsługi pliku wave (nowy, otwórz, zapisz, dopisz).
+ * Udostępniona do użytku przez dr Piotra Wrzeciono
  * @author Piotr Wrzeciono
  * @since 2016.02.19
  */
