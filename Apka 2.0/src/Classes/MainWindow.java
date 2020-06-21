@@ -63,7 +63,7 @@ public class MainWindow extends JFrame {
                 ioException.printStackTrace();
             }
         }
-        String[] Pleci=new String[]{"Male", "Female","Agender","Androgyne","Androgynous","Bi gender","Cis",
+        String[] Pleci=new String[]{"Mężczyzna", "Kobieta","Agender","Androgyne","Androgynous","Bi gender","Cis",
                 "Cis gender","Cis Female","Cis Male","FTM","Gender Fluid","Gender Nonconforming","MTF","Neither","Non-binary","Pangender","Trans","Other"};
         for (int i=0;i<Pleci.length;i++)
         {
