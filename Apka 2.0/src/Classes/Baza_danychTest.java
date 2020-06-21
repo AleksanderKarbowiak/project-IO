@@ -8,7 +8,9 @@ package Classes;
 
 //import java.io.File;
 
-
+/**
+ * Klasa służąca do testowania bazy danych
+ */
 public class Baza_danychTest {
 
     public Baza_danych baza_danych = new Baza_danych();

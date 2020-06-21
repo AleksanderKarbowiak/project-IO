@@ -2,7 +2,9 @@ package Classes;
 
 import java.io.File;
 
-
+/**
+ * Klasa służąca do testowania nagrywania
+ */
 public class NagrywarkaTest {
     public Nagrywarka nagrywarka = new Nagrywarka();
 

@@ -17,6 +17,9 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
 
+/**
+ * Klasa służąca do rysowania wykresów
+ */
 public class Wykres extends JFrame {
 
     public Wykres(double[] tab, String title, long fsamp) {

@@ -4,6 +4,7 @@ import java.util.*;
 
 /**
  * Klasa odpowiedzialna za obsługę dyskretnej transformaty Fouriera
+ * Udostępniona do użytku przez dr Piotra Wrzeciono
  */
 public class DTFT {
 

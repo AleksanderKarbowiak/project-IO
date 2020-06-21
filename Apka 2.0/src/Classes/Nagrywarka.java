@@ -3,6 +3,9 @@ package Classes;
 import java.io.*;
 import javax.sound.sampled.*;
 
+/**
+ * Klasa służąca do obsługi nagrywania
+ */
 public class Nagrywarka {
 
     File wavFile;

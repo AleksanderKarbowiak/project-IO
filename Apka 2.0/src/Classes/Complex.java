@@ -3,7 +3,8 @@ import java.util.*;
 
 
 /**
- * Class Complex
+ * Klasa do obsługi liczb zespolonych
+ * Udostępniona do użytku przez dr Piotra Wrzeciono
  */
 public class Complex {
 
@@ -104,13 +105,15 @@ public class Complex {
   
   
   /**
-   * @return       double
+   * Metoda zwraca wartość modułu liczby zespolonej
+   * @return  Moduł liczby zespolonej
    */
   public double absolute()
   {
      moduł = Math.sqrt((real*real) + (imaginary*imaginary));
      return moduł;
   }
+
   private void ObliczFazę(double a, double b)
     {
         if(a == 0 && b == 0)

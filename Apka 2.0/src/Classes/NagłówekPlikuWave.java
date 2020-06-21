@@ -5,7 +5,7 @@ package Classes;
  * Klasa służąca do obsługiwania nagłówka pliku wave.
  *
  * Klasa ta jest tworzona zarówno z danych strumienia, jak i z bajtów odczytanych z pliku.
- *
+ * Udostępniona do użytku przez dr Piotra Wrzeciono
  * @author Piotr Wrzeciono
  * @since 2016.02.17
  */

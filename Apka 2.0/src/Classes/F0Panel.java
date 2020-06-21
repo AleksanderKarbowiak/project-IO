@@ -4,7 +4,9 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+/**
+ * Klasa okna F0
+ */
 public class F0Panel extends JFrame {
     public JPanel F0Panel;
     private JPanel WyborNagraniaPanel;

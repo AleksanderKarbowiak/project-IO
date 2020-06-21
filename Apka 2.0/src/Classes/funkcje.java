@@ -100,11 +100,11 @@ public class funkcje
             t = Ts * (double)i;
             
             wynik[i] = Amplituda * Math.exp(-Współczynnik * t);
-        }//next i
+        }
         
         return wynik;
         
-    }//Koniec fukcji A*e^(-at)
+    }
 
     /**
      * metoda budująca okresowy sygnał o kształcie prostokąta
@@ -144,7 +144,7 @@ public class funkcje
         
         return wynik;
         
-    }//Koniec metody zwracającej okresowy prostokąt
+    }
     
     
-}//Koniec klasy
+}

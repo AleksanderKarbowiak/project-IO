@@ -11,7 +11,7 @@ import java.nio.ByteOrder;
 /**
  * Klasa służąca do zamiany Small Endian na BigEndian i odwrotnie.
  * Klasa zawiera tylko metody statyczne!
- *
+ * Udostępniona do użytku przez dr Piotra Wrzeciono
  * @author Piotr Wrzeciono
  * @since 2016.02.17
  */

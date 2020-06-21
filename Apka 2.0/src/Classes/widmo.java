@@ -2,6 +2,10 @@
  * Klasa służąca do przechowywania wyniku działania dyskretnej transformaty Fouriera
  */
 package Classes;
+
+/**
+ * Klasa służąca do obsługi widma częstotliwości
+ */
 public class widmo
 {
     private final Complex wynik;

@@ -3,7 +3,7 @@ package Classes;
 import java.io.*;
 
 /**
- * Class Kalibracja
+ * Klasa służąca do kalibracji nagrań
  */
 public class Kalibracja {
 

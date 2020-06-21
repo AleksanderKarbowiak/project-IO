@@ -3,7 +3,9 @@ package Classes;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+/**
+ * Klasa okna średniej głośności
+ */
 public class ŚredniaGłośnośćPanel extends JFrame {
     private JButton obliczBtn1;
     private JComboBox comboBox1;

@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 /**
- * Class Baza_danych
+ * Klasa służąca do obsługi bazy danych
  */
 public class Baza_danych {
 
@@ -54,8 +54,8 @@ public class Baza_danych {
   }
 
   /**
-   * Set the value of nagrania_
-   * @param newVar the new value of nagrania_
+   * Metoda ustawia wartość obiektu nagrania
+   * @param newVar Nowa wartość dla obiektu nagrania_
    */
   public void setNagrania_ (ArrayList<Nagranie> newVar) {
       nagrania = newVar;
@@ -67,8 +67,8 @@ public class Baza_danych {
   }
 
   /**
-   * Get the value of nagrania_
-   * @return the value of nagrania_
+   * Metoda pobiera obiekt nagrania_
+   * @return Obiekt nagrania_
    */
   public ArrayList<Nagranie> nagrania() {
       return nagrania;

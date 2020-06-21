@@ -4,6 +4,9 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+/**
+ * Klasa do testowania obliczania F0
+ */
 public class F0Test {
 
  String nazwaPliku = "plik.wav";

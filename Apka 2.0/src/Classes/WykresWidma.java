@@ -17,6 +17,9 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
 
+/**
+ * Klasa zawierająca metody tworzące wykresy widma
+ */
 public class WykresWidma extends JFrame {
     /**
      * klasa zawierająca metody tworzące wykres widma

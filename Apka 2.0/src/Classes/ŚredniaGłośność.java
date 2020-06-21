@@ -1,5 +1,8 @@
 package Classes;
 
+/**
+ * Klasa służąca do obliczania średniej głośności nagrania
+ */
 public class ŚredniaGłośność {
 
     /**
